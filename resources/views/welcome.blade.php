@@ -48,7 +48,10 @@
             <li><a href="/buy.html">Buy</a></li>
             <li><a href="/svstrike.html">svStrike</a></li>
             <li><a href="/training.html">Training</a></li>
-            <li><a href="/contact.html">Contact Us</a></li>
+
+            <li><a href="{{ url('/crear_cliente') }}">PRUEBA</a></li>
+
+
             <li class="visible-xs-block"><a href="/about.html">About Us</a></li>
             <li class="visible-xs-block"><a href="/careers.html">Careers</a></li>
             <li class="visible-xs-block"><a href="/press-release.html">Press Release</a></li>

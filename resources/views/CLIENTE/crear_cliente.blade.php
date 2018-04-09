@@ -5,36 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-   <!--agrego codigo del menu lateral dentro del body (lo coloco encima del formulario) -->
-   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script> 
-   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 
    <!-- dentro de la etiqueta head llamo el menu.css -->
-   <link href=".../public/boostrap-3.3.7-dist/css/menu.css" rel="stylesheet">
+   <link rel="stylesheet" href="./css/menu.css">
 
     <title>TITULO DE PRUEBA PARA CLIENTES</title>
-
-
-
-<!-- cuando el css es largo me toca crear un archivo .css y llamarlo en el head-->
-<!-- como el CSS es corto, creo una etiqueta Style y la coloco dentro del head-->
-
-<style type="text/css">
-  .header {
-    color: #36A0FF;
-    font-size: 27px;
-    padding: 10px;
-}
-
-.bigicon {
-    font-size: 35px;
-    color: #36A0FF;
-}
-
-</style>
 
 
   </head>
@@ -164,14 +143,14 @@
                          <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Cedula" class="form-control">
+                                <input id="cedula" name="phone" type="text" placeholder="Cedula" class="form-control">
                             </div>
                         </div>
 
                          <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-home bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Direccion" class="form-control">
+                                <input id="direccion" name="phone" type="text" placeholder="Direccion" class="form-control">
                             </div>
                         </div>
 
@@ -188,7 +167,7 @@
                        <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-unlock-alt bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="password" placeholder="Contraseña" class="form-control">
+                                <input id="password" name="phone" type="password" placeholder="Contraseña" class="form-control">
                             </div>
                         </div>
 

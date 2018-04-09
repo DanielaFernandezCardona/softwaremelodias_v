@@ -24,3 +24,7 @@ Route::get('/cliente', function () {
     return view('cliente');
 });
 
+
+Route::get('/crear_cliente', function () {
+    return view('CLIENTE/crear_cliente'); 
+});
