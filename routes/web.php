@@ -28,3 +28,8 @@ Route::get('/cliente', function () {
 Route::get('/crear_cliente', function () {
     return view('CLIENTE/crear_cliente'); 
 });
+
+
+Route::get('/crear_producto', function () {
+    return view('PRODUCTO/crearproducto'); 
+});
