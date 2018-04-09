@@ -25,11 +25,26 @@ Route::get('/cliente', function () {
 });
 
 
-Route::get('/crear_cliente', function () {
-    return view('CLIENTE/crear_cliente'); 
-});
 
 
 Route::get('/crear_producto', function () {
     return view('PRODUCTO/crearproducto'); 
 });
+
+
+//clientes
+Route::get('/crear_cliente', function () {
+    return view('CLIENTE/crear_cliente'); 
+});
+
+Route::post('/crearPersona','usuarioController@create');
+
+Route::get('/listar_Personas', ['as' => 'listar_Personas', 'uses' => 'usuarioController@index']);
+
+Route::get('persona/destroy/{cedula}', ['as' => 'persona/destroy', 'uses'=>'usuarioController@destroy']);
+
+
+
+
+
+

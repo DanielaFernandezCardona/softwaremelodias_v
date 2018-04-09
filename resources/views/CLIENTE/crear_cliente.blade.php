@@ -36,11 +36,19 @@
         <div class="menu-list">
   
             <ul id="menu-content" class="menu-content collapse out">
-                <li>
-                  <a href="#">
-                  <i class="fa fa-dashboard fa-lg"></i> Gestión de usuarios
-                  </a>
+                
+                 <li  data-toggle="collapse" data-target="#products" class="collapsed active">
+                  <a href="#"><i class="fa fa-gift fa-lg"></i> Gestion de Usuarios <span class="arrow"></span></a>
                 </li>
+                <ul class="sub-menu collapse" id="products">
+                    <li><a href="/crear_cliente">Crear Persona</a></li>
+                    <li><a href="/listar_Personas">Listar Personas</a></li>
+                    <li><a href="#">Mis Datos</a></li>
+           
+                </ul>
+
+
+
 
                 <li  data-toggle="collapse" data-target="#products" class="collapsed active">
                   <a href="#"><i class="fa fa-gift fa-lg"></i> Reportes <span class="arrow"></span></a>
@@ -109,20 +117,28 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+               @if(Session::has('success'))
+               <div class="alert alert-success" role="alert">
+                <strong>Bien!</strong> {!! session('success') !!}.
+              </div>
+                 @endif
+
+
+                <form class="form-horizontal" method="post" action="/crearPersona"  enctype="multipart/form-data" >
+                  <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <legend class="text-center header">Formulario usuario</legend>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="Nombres" class="form-control">
+                                <input id="nombre" name="nombre" type="text" placeholder="Nombres" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Apellidos" class="form-control">
+                                <input id="apellido" name="apellido" type="text" placeholder="Apellidos" class="form-control">
                             </div>
                         </div>
 
@@ -137,7 +153,7 @@
                           <!--sirve para cambiar el icono que sale enseguida -->
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Telefono" class="form-control">
+                                <input id="telefono" name="telefono" type="text" placeholder="Telefono" class="form-control">
                             </div>
                         </div>
 
@@ -145,21 +161,21 @@
                          <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="cedula" name="phone" type="text" placeholder="Cedula" class="form-control">
+                                <input id="cedula" name="cedula" type="text" placeholder="Cedula" class="form-control">
                             </div>
                         </div>
 
                          <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-home bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="direccion" name="phone" type="text" placeholder="Direccion" class="form-control">
+                                <input id="direccion" name="direccion" type="text" placeholder="Direccion" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
                           <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
                           <div class="col-md-8">
-                          <select class="form-control" id="sel1">
+                          <select class="form-control" id="rol" name="rol">
                             <option value="administrador">Administrador</option>
                             <option value="empleado">Empleado</option>
                           </select>
@@ -169,7 +185,7 @@
                        <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-unlock-alt bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="password" name="phone" type="password" placeholder="Contraseña" class="form-control">
+                                <input id="contrasena" name="contrasena" type="password" placeholder="Contraseña" class="form-control">
                             </div>
                         </div>
 
@@ -177,7 +193,7 @@
                         <div class="form-group">
                              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-file-photo-o bigicon"></i></span>
                              <div class="col-md-8">
-                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                          <input type="file" class="form-control-file" id="foto" name="foto">
                           </div>
                         </div>
 
