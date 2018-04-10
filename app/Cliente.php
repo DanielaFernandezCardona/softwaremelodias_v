@@ -7,10 +7,10 @@ use Redirect;
 use DB;
 
 
-class usuario extends Model
+class Cliente extends Model
 {
     
-protected $table = 'usuario';
+protected $table = 'clientes';
 protected $primaryKey='cedula';
 
 
@@ -20,31 +20,29 @@ protected $primaryKey='cedula';
     * @param trae los datos necesarios para crear un registro de la bd.
     * 
     */
-   public static function crearUsuario($data)
+   public static function crearCliente($data)
    {
 
    	$nombreCompleto=$data['nombres'].$data['apellidos'];
 
-   	 DB::table('usuario')->insert(array(
+   	 DB::table('clientes')->insert(array(
        'nombreCompleto' => $nombreCompleto ,
-       'email' => $data['email'],
        'telefono' => $data['telefono'],
        'cedula' => $data['cedula'],
        'direccion' => $data['direccion'],
-       'rol' => $data['rol'],
-       'contrasena' => $data['contrasena'],
-       'imagen' => $data['foto']               		           
+       'tipoDocumento' => $data['tipoDocumento'],
+       'rol' => $data['rol']
      ));
 
    }
 
 
-     public static function destroyUsuario($idcedula)
+     public static function destroyCliente($idcedula)
       {
 
 
-        $usuario = usuario::find($idcedula);
-        $usuario->delete();
+        $cliente = Cliente::find($idcedula);
+        $cliente->delete();
 
       }
  
