@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\usuario;
+use App\cliente;
 use Redirect;
 use DB;
 
@@ -17,10 +17,12 @@ class usuarioController extends Controller
  public function index()
         {
             
-             $personas=DB::table('usuario')
-                ->select('nombreCompleto','cedula','email','direccion','telefono', 'rol', 'contrasena','imagen')
+             $personas=DB::table('clientes')
+                ->join('users', 'users.idUsuario', '=', 'clientes.Usuario_idUsuario')
+                ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.usarname','users.email', 'users.password')
                 ->get();
 
+               
             return view('/CLIENTE/listar_Personas',['personas' => $personas]);
         
         }
@@ -36,26 +38,29 @@ class usuarioController extends Controller
         {
             
           //obtenemos el campo file definido en el formulario
-           $file = $request->file('foto');
-     
-           //obtenemos el nombre del archivo
-           $nombre = $file->getClientOriginalName();
-           $extension = $file->getClientOriginalExtension();
 
+          // $file = $request->file('foto');
+     
+           /**obtenemos el nombre del archivo
+              * $nombre = $file->getClientOriginalName();
+              * $extension = $file->getClientOriginalExtension();
+              */
 
             
-            $datausuarios= array(
+            $dataclientes= array(
                 'nombres' => $request->nombre,
                 'apellidos' => $request->apellido,
-                'email' => $request->email,
-                'telefono' => $request->telefono,
                 'cedula' => $request->cedula,
                 'direccion' => $request->direccion,
+                'telefono' => $request->telefono,
                 'rol' => $request->rol,
-                'contrasena' => $request->contrasena,
-                'foto' => './storage/'.$nombre
+                'tipoDocumento' => $request->tipoDocumento,
+                'username' => $request->username,
+                'email' => $request->email,
+                'password' => $request->password,
+                //'foto' => './storage/'.$nombre
                                 );
-                usuario::crearUsuario($datausuarios);
+                cliente::crearcliente($dataclientes);
 
             
         //indicamos que queremos guardar un nuevo archivo en el public
@@ -69,10 +74,10 @@ class usuarioController extends Controller
 
         }
 
-
-        public function destroy($idCedula)
+      public function destroy($idCedula)
+    
     {
-      usuario::destroyUsuario($idCedula);
+      cliente::destroycliente($idCedula);
       return redirect('/listar_Personas');
     }
 }

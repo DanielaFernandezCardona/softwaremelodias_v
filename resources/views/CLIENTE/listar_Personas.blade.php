@@ -118,12 +118,14 @@
       <tr>
        <th data-field="nombreCompleto" data-align="right">nombreCompleto</th>
        <th data-field="cedula">cedula</th>
-       <th data-field="email">email</th>
        <th data-field="direccion"> direccion</th>
        <th data-field="telefono">telefono</th>
        <th data-field="rol"> rol</th>
+       <th data-field="tipoDocumento"> tipoDocumento</th>
+       <th data-field="username"> username</th>
+       <th data-field="email">email</th>
        <th data-field="contrasena">contrasena</th>
-       <th data-field="foto"> foto</th>
+       <!--<th data-field="foto"> foto</th>-->
      </tr>
    </thead>
    <tbody>
@@ -131,13 +133,15 @@
       @foreach($personas as $persona)
       <td>{{$persona->nombreCompleto}}</td>
       <td>{{$persona->cedula}}</td>
-      <td>{{$persona->email}}</td>    
       <td>{{$persona->direccion}}</td>
       <td>{{$persona->telefono}}</td>
-      <td style="text-align: center;">{{$persona->rol}}</td>    
+      <td style="text-align: center;">{{$persona->rol}}</td>   
+      <td style="text-align: center;">{{$persona->tipoDocumento}}</td> 
+      <td>{{$persona->username}}</td> 
+      <td>{{$persona->email}}</td> 
       <td>{{$persona->contrasena}}</td>    
-      <td><img src="./storage/313247_171303399615225_971034462_n.jpg" alt="{{$persona->nombreCompleto}}" class="img-responsive" widht="300" height="300"  /></td>
-      <td>
+      <!--<td><img src="./storage/313247_171303399615225_971034462_n.jpg" alt="{{$persona->nombreCompleto}}" class="img-responsive" widht="300" height="300"  /></td>
+      <td>-->
        <a class="btn btn-danger btn-xs" href="{{ route('persona/destroy',['cedula' =>$persona->cedula] )}}" onclick="return confirm('¿Seguro desea eliminarlo?')" >Eliminar</a>
      </td>   
 

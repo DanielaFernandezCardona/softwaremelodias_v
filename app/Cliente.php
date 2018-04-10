@@ -7,7 +7,7 @@ use Redirect;
 use DB;
 
 
-class Cliente extends Model
+class cliente extends Model
 {
     
 protected $table = 'clientes';
@@ -16,7 +16,7 @@ protected $primaryKey='cedula';
 
 
   /**
-    * Registra un libro en la base de datos
+    * Registra un cliente en la base de datos
     * @param trae los datos necesarios para crear un registro de la bd.
     * 
     */
@@ -27,13 +27,22 @@ protected $primaryKey='cedula';
 
    	 DB::table('clientes')->insert(array(
        'nombreCompleto' => $nombreCompleto ,
-       'telefono' => $data['telefono'],
        'cedula' => $data['cedula'],
        'direccion' => $data['direccion'],
+       'telefono' => $data['telefono'],
+       'rol' => $data['rol'],       
        'tipoDocumento' => $data['tipoDocumento'],
-       'rol' => $data['rol']
+       'Usuario_idUsuario' => $data['idUsuario'],
+       
      ));
 
+      DB::table('users')->insert(array(
+       'username' => $data['username'],
+       'email' => $data['email'],       
+       'password' => $data['password']  ,
+
+      ));  
+     
    }
 
 

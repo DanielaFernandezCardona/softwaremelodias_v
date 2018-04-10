@@ -48,8 +48,6 @@
                 </ul>
 
 
-
-
                 <li  data-toggle="collapse" data-target="#products" class="collapsed active">
                   <a href="#"><i class="fa fa-gift fa-lg"></i> Reportes <span class="arrow"></span></a>
                 </li>
@@ -127,7 +125,7 @@
                 <form class="form-horizontal" method="post" action="/crearPersona"  enctype="multipart/form-data" >
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
-                        <legend class="text-center header">Formulario usuario</legend>
+                        <legend class="text-center header">Formulario Persona</legend>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
@@ -143,9 +141,16 @@
                         </div>
 
                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-cc bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email" class="form-control">
+                                <input id="cedula" name="cedula" type="text" placeholder="Cédula" class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-home bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="direccion" name="direccion" type="text" placeholder="Direccion" class="form-control">
                             </div>
                         </div>
 
@@ -153,22 +158,7 @@
                           <!--sirve para cambiar el icono que sale enseguida -->
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-phone-square bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="telefono" name="telefono" type="text" placeholder="Telefono" class="form-control">
-                            </div>
-                        </div>
-
-
-                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="cedula" name="cedula" type="text" placeholder="Cedula" class="form-control">
-                            </div>
-                        </div>
-
-                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-home bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="direccion" name="direccion" type="text" placeholder="Direccion" class="form-control">
+                                <input id="telefono" name="telefono" type="text" placeholder="Teléfono" class="form-control">
                             </div>
                         </div>
 
@@ -182,6 +172,31 @@
                         </div>
                         </div>
 
+                        <div class="form-group">
+                          <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                          <div class="col-md-8">
+                          <select class="form-control" id="tipoDocumento" name="tipoDocumento">
+                            <option value="cedula">Cédula</option>
+                            <option value="cedulaExtranjeria">Cédula Extranjería</option>
+                             <option value="tarjetaIdentidad">Tarjeta Identidad</option>
+                          </select>
+                        </div>
+                        </div>
+
+                         <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="username" name="username" type="text" placeholder="username" class="form-control">
+                            </div>
+                        </div> 
+
+                         <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="email" name="email" type="text" placeholder="Email" class="form-control">
+                            </div>
+                        </div>                     
+
                        <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-unlock-alt bigicon"></i></span>
                             <div class="col-md-8">
@@ -189,13 +204,12 @@
                             </div>
                         </div>
 
-
-                        <div class="form-group">
+                        <!--<div class="form-group">
                              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-file-photo-o bigicon"></i></span>
                              <div class="col-md-8">
                           <input type="file" class="form-control-file" id="foto" name="foto">
                           </div>
-                        </div>
+                        </div>-->
 
                        <div class="form-group">
                             <div class="col-md-12 text-center">
