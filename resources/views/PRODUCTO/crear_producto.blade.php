@@ -54,41 +54,47 @@
   
         <div class="menu-list">
   
+           
             <ul id="menu-content" class="menu-content collapse out">
-                <li>
-                  <a href="#">
-                  <i class="fa fa-group fa-lg"></i> Gestión de usuarios
-                  </a>
+              
+
+               <li  data-toggle="collapse" data-target="#usuario" class="collapsed">
+                  <a href="#"><i class="fa fa-group fa-lg"></i> Gestion de Usuarios <span class="arrow"></span></a>
                 </li>
+                <ul class="sub-menu collapse" id="usuario">
+                    <li><a href="/crear_cliente">Crear Persona</a></li>
+                    <li><a href="/listar_Personas">Listar Personas</a></li>
+                    <li><a href="#">Mis Datos</a></li>
+           
+                </ul>
 
-                
 
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
+               <li data-toggle="collapse" data-target="#producto" class="collapsed">
                   <a href="#"><i class="fa fa-glass fa-lg"></i> Productos <span class="arrow"></span></a>
                 </li>
-                <ul class="sub-menu collapse" id="new">
-                  <li>Crear producto</li>
+                <ul class="sub-menu collapse" id="producto">
+                  <li><a href="/crear_producto"> Crear producto</a></li>
                   <li>Listar productos</li>
                   <li>Agregar al Stock</li>
                 </ul>
 
 
 
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
+                 <li data-toggle="collapse" data-target="#venta" class="collapsed">
                   <a href="#"><i class="fa fa-calculator fa-lg"></i> Ventas <span class="arrow"></span></a>
-
                 </li>  
-                <ul class="sub-menu collapse" id="service">
+                <ul class="sub-menu collapse" id="venta">
                   <li>Registrar venta</li>
+                  <li><a href="/cierre_caja">Cierre caja</a></li>
                   <li>Consultar ventas</li>
                 </ul>
 
 
 
-                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                  <a href="#"><i class="fa fa-file-excel-o fa-lg"></i> Reportes <span class="arrow"></span></a>
+                  <li  data-toggle="collapse" data-target="#reporte" class="collapsed">
+                  <a href="#"><i class="fa fa-area-chart fa-lg"></i> Reportes <span class="arrow"></span></a>
                 </li>
-                <ul class="sub-menu collapse" id="products">
+                <ul class="sub-menu collapse" id="reporte">
                     <li class="active"><a href="#">CSS3 Animation</a></li>
                     <li><a href="#">General</a></li>
                     <li><a href="#">Buttons</a></li>
@@ -115,11 +121,7 @@
                   </a>
                   </li>
 
-                 <li>
-                  <a href="#">
-                  <i class="fa fa-user fa-lg"></i> Clientes
-                  </a>
-                </li>
+            
             </ul>
      </div>
 </div>
@@ -133,32 +135,32 @@
             <div class="well well-sm">
                 <form class="form-horizontal" method="post">
                     <fieldset>
-                        <legend class="text-center header">Detalles producto</legend>
+                        <legend class="text-center header">Formulario producto</legend>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-barcode bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="fname" name="name" type="text" placeholder="Código" class="form-control">
+                                <input id="codigo" name="codigo" type="text" placeholder="Código" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-beer bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="lname" name="name" type="text" placeholder="Nombre" class="form-control">
+                                <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control">
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-pencil-square-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <textarea class="form-control" id="message" name="message" placeholder="Agrega una descripción del producto" rows="3"></textarea>
+                                <textarea class="form-control" id="descripcion" name="descripcion" placeholder="Agrega una descripción del producto" rows="3"></textarea>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calculator bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Unidades" class="form-control">
+                                <input id="unidades" name="unidades" type="text" placeholder="Unidades" class="form-control">
                             </div>
                         </div>
 
@@ -166,7 +168,7 @@
                           <!--sirve para cambiar el icono que sale enseguida -->
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Precio compra" class="form-control">
+                                <input id="preciocompra" name="preciocompra" type="text" placeholder="Precio compra" class="form-control">
                             </div>
                         </div>
 
@@ -174,7 +176,7 @@
                          <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="phone" name="phone" type="text" placeholder="Precio venta" class="form-control">
+                                <input id="precioventa" name="precioventa" type="text" placeholder="Precio venta" class="form-control">
                             </div>
                         </div>
 
@@ -182,7 +184,7 @@
                         <div class="form-group">
                              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-file-photo-o bigicon"></i></span>
                              <div class="col-md-8">
-                          <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                          <input type="file" class="form-control-file" id="imagen">
                           </div>
                         </div>
 

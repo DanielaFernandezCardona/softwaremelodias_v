@@ -18,6 +18,20 @@
     <title>TITULO DE PRUEBA PARA CLIENTES</title>
 
 
+    <style type="text/css">
+  .header {
+    color: #36A0FF;
+    font-size: 27px;
+    padding: 10px;
+}
+
+.bigicon {
+    font-size: 35px;
+    color: #36A0FF;
+}</style>
+
+
+
   </head>
 <!--- dentroo de esta etiqueta no puede ir ningun script 
 
@@ -36,16 +50,45 @@
         <div class="menu-list">
   
             <ul id="menu-content" class="menu-content collapse out">
-                <li>
-                  <a href="/listar_Personas">
-                  <i class="fa fa-dashboard fa-lg"></i> Gestión de usuarios
-                  </a>
-                </li>
 
-                <li  data-toggle="collapse" data-target="#products" class="collapsed active">
-                  <a href="#"><i class="fa fa-gift fa-lg"></i> Reportes <span class="arrow"></span></a>
+
+                <li  data-toggle="collapse" data-target="#usuario" class="collapsed">
+                  <a href="#"><i class="fa fa-group fa-lg"></i> Gestion de Usuarios <span class="arrow"></span></a>
                 </li>
-                <ul class="sub-menu collapse" id="products">
+                <ul class="sub-menu collapse" id="usuario">
+                    <li><a href="/crear_cliente">Crear Persona</a></li>
+                    <li><a href="/listar_Personas">Listar Personas</a></li>
+                    <li><a href="#">Mis Datos</a></li>
+                </ul>
+
+
+                <li data-toggle="collapse" data-target="#producto" class="collapsed">
+                  <a href="#"><i class="fa fa-glass fa-lg"></i> Productos <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="producto">
+                  <li><a href="/crear_producto"> Crear producto</a></li>
+                  <li>Listar productos</li>
+                  <li>Agregar al Stock</li>
+                </ul>
+
+
+
+                <li data-toggle="collapse" data-target="#venta" class="collapsed">
+                  <a href="#"><i class="fa fa-calculator fa-lg"></i> Ventas <span class="arrow"></span></a>
+                </li>  
+                <ul class="sub-menu collapse" id="venta">
+                  <li>Registrar venta</li>
+                  <li><a href="/cierre_caja">Cierre caja</a></li>
+                  <li>Consultar ventas</li>
+                </ul>
+
+
+
+
+              <li  data-toggle="collapse" data-target="#reporte" class="collapsed">
+                  <a href="#"><i class="fa fa-area-chart fa-lg"></i> Reportes <span class="arrow"></span></a>
+                </li>
+                <ul class="sub-menu collapse" id="reporte">
                     <li class="active"><a href="#">CSS3 Animation</a></li>
                     <li><a href="#">General</a></li>
                     <li><a href="#">Buttons</a></li>
@@ -59,29 +102,10 @@
                 </ul>
 
 
-                <li data-toggle="collapse" data-target="#service" class="collapsed">
-                  <a href="#"><i class="fa fa-globe fa-lg"></i> Ventas <span class="arrow"></span></a>
-                </li>  
-                <ul class="sub-menu collapse" id="service">
-                  <li>Registrar venta</li>
-                  <li>Consultar ventas</li>
-                </ul>
-
-
-                <li data-toggle="collapse" data-target="#new" class="collapsed">
-                  <a href="#"><i class="fa fa-car fa-lg"></i> Productos <span class="arrow"></span></a>
-                </li>
-                <ul class="sub-menu collapse" id="new">
-                  <li>Crear producto</li>
-                  <li>Listar productos</li>
-                  <li>Agregar al Stock</li>
-                </ul>
-
-
-
+        
                 <li>
                   <a href="#">
-                  <i class="fa fa-user fa-lg"></i> Torneos
+                  <i class="fa fa-trophy fa-lg"></i> Torneos
                   </a>
                   </li>
 
@@ -89,15 +113,11 @@
 
                  <li>
                   <a href="#">
-                  <i class="fa fa-user fa-lg"></i> Citas
+                  <i class="fa fa-calendar fa-lg"></i> Citas
                   </a>
                   </li>
 
-                 <li>
-                  <a href="#">
-                  <i class="fa fa-user fa-lg"></i> Clientes
-                  </a>
-                </li>
+  
             </ul>
      </div>
 </div>

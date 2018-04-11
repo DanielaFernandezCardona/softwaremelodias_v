@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
    <!--agrego codigo del menu lateral dentro del body (lo coloco encima del formulario) -->
-   <link rel="stylesheet" href="css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="js/bootstrap.min.js"></script> 
-   <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+   <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 
 
    <!-- dentro de la etiqueta head llamo el menu.css -->
@@ -54,8 +54,10 @@
   
         <div class="menu-list">
   
+           
             <ul id="menu-content" class="menu-content collapse out">
-               
+              
+
                <li  data-toggle="collapse" data-target="#usuario" class="collapsed">
                   <a href="#"><i class="fa fa-group fa-lg"></i> Gestion de Usuarios <span class="arrow"></span></a>
                 </li>
@@ -63,11 +65,11 @@
                     <li><a href="/crear_cliente">Crear Persona</a></li>
                     <li><a href="/listar_Personas">Listar Personas</a></li>
                     <li><a href="#">Mis Datos</a></li>
+           
                 </ul>
 
-                
 
-                 <li data-toggle="collapse" data-target="#producto" class="collapsed">
+               <li data-toggle="collapse" data-target="#producto" class="collapsed">
                   <a href="#"><i class="fa fa-glass fa-lg"></i> Productos <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="producto">
@@ -78,7 +80,7 @@
 
 
 
-              <li data-toggle="collapse" data-target="#venta" class="collapsed">
+                 <li data-toggle="collapse" data-target="#venta" class="collapsed">
                   <a href="#"><i class="fa fa-calculator fa-lg"></i> Ventas <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="venta">
@@ -89,7 +91,7 @@
 
 
 
-              <li  data-toggle="collapse" data-target="#reporte" class="collapsed">
+                  <li  data-toggle="collapse" data-target="#reporte" class="collapsed">
                   <a href="#"><i class="fa fa-area-chart fa-lg"></i> Reportes <span class="arrow"></span></a>
                 </li>
                 <ul class="sub-menu collapse" id="reporte">
@@ -119,7 +121,7 @@
                   </a>
                   </li>
 
-                  
+            
             </ul>
      </div>
 </div>
@@ -133,28 +135,33 @@
             <div class="well well-sm">
                 <form class="form-horizontal" method="post">
                     <fieldset>
-                        <legend class="text-center header">Lista de productos</legend>
-
+                        <legend class="text-center header">Cierre caja</legend>
 
                         <div class="form-group">
-                          <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-search bigicon"></i></span>
-                          <div class="col-md-8">
-                            <select class="form-control" id="exampleFormControlSelect1">
-                                    <option>1</option>
-                                    <option>2</option>
-                                    <option>3</option>
-                                    <option>4</option>
-                                    <option>5</option>
-                                 </select>
-                          
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="fecha" name="fecha" type="text" placeholder="Fecha" class="form-control">
                             </div>
-                                
-                                </div>
+                        </div>
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="lname" name="usuario" type="text" placeholder=usuario class="form-control">
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="recuado" name="recuado" type="text" placeholder="Dinero recuadado" class="form-control">
+                            </div>
+                        </div>
+
 
                        <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-success btn-lg">Guardar</button>
-                                <button type="submit" class="btn btn-danger btn-lg">Cerrar</button>
+                                <button type="submit" class="btn btn-success btn-lg">Siguiente</button>
+                            
                             </div>
                         </div>
 
@@ -164,3 +171,11 @@
         </div>
     </div>
 </div>
+
+
+
+
+
+
+  </body>
+</html>

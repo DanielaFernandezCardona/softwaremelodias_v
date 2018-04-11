@@ -28,7 +28,7 @@ Route::get('/cliente', function () {
 
 
 Route::get('/crear_producto', function () {
-    return view('PRODUCTO/crearproducto'); 
+    return view('PRODUCTO/crear_producto'); 
 });
 
 
@@ -36,6 +36,13 @@ Route::get('/crear_producto', function () {
 Route::get('/crear_cliente', function () {
     return view('CLIENTE/crear_cliente'); 
 });
+
+//cierre_caja
+Route::get('/cierre_caja', function () {
+    return view('PRODUCTO/cierre_caja'); 
+});
+
+
 
 Route::post('/crearPersona','usuarioController@create');
 
