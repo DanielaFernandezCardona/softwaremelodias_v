@@ -14,7 +14,6 @@ protected $table = 'clientes';
 protected $primaryKey='cedula';
 
 
-
   /**
     * Registra un cliente en la base de datos
     * @param trae los datos necesarios para crear un registro de la bd.
@@ -23,26 +22,32 @@ protected $primaryKey='cedula';
    public static function crearCliente($data)
    {
 
-   	$nombreCompleto=$data['nombres'].$data['apellidos'];
+      $users = DB::table('users')->count();
+      $contador = $users + 1;
+   
+   	  DB::table('users')->insert(array(
+       'username' => $data['username'],
+       'email' => $data['email'],       
+       'password' => $data['password']
 
-   	 DB::table('clientes')->insert(array(
-       'nombreCompleto' => $nombreCompleto ,
-       'cedula' => $data['cedula'],
+      ));  
+
+
+      $contador = $contador++;
+     // $usuario = DB::table('users')->select('idUsuario')->where('email', '=', $data['email'])->get();
+      //$id = DB:: select idUsuario from users where(users.email = email);
+      $nombreCompleto=$data['nombres']." ".$data['apellidos'];
+
+
+     DB::table('clientes')->insert(array(
+       'nombreCompleto' => $nombreCompleto,
+       'cedula' => intval($data['cedulaEntrante']),
        'direccion' => $data['direccion'],
        'telefono' => $data['telefono'],
        'rol' => $data['rol'],       
-       'tipoDocumento' => $data['tipoDocumento'],
-       'Usuario_idUsuario' => $data['idUsuario'],
+       'tipoDocumento' => $data['tipoDocumento']
        
      ));
-
-      DB::table('users')->insert(array(
-       'username' => $data['username'],
-       'email' => $data['email'],       
-       'password' => $data['password']  ,
-
-      ));  
-     
    }
 
 

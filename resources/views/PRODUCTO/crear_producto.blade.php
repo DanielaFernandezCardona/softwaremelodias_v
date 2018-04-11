@@ -84,6 +84,7 @@
                   <a href="#"><i class="fa fa-calculator fa-lg"></i> Ventas <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="venta">
+                  <li><a href="/apertura_caja">Apertura caja</a></li>
                   <li>Registrar venta</li>
                   <li><a href="/cierre_caja">Cierre caja</a></li>
                   <li>Consultar ventas</li>
@@ -133,20 +134,29 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="post">
+               @if(Session::has('success'))
+               <div class="alert alert-success" role="alert">
+                <strong>Bien!</strong> {!! session('success') !!}.
+              </div>
+                 @endif
+
+
+
+                <form class="form-horizontal" method="post" action="/crearProducto"  enctype="multipart/form-data" >
+                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <legend class="text-center header">Formulario producto</legend>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-barcode bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="codigo" name="codigo" type="text" placeholder="Código" class="form-control">
+                                <input id="id" name="id" type="text" placeholder="Código" class="form-control">
                             </div>
                         </div>
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-beer bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="nombre" name="nombre" type="text" placeholder="Nombre" class="form-control">
+                                <input id="nombreProducto" name="nombreProducto" type="text" placeholder="Nombre" class="form-control">
                             </div>
                         </div>
 
@@ -168,7 +178,7 @@
                           <!--sirve para cambiar el icono que sale enseguida -->
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="preciocompra" name="preciocompra" type="text" placeholder="Precio compra" class="form-control">
+                                <input id="preciocompraunidad" name="preciocompraunidad type="text" placeholder="PrecioCompra" class="form-control">
                             </div>
                         </div>
 
@@ -176,7 +186,7 @@
                          <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="precioventa" name="precioventa" type="text" placeholder="Precio venta" class="form-control">
+                                <input id="precioventaproducto" name="precioventaproducto" type="text" placeholder="PrecioVenta" class="form-control">
                             </div>
                         </div>
 
@@ -184,7 +194,7 @@
                         <div class="form-group">
                              <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-file-photo-o bigicon"></i></span>
                              <div class="col-md-8">
-                          <input type="file" class="form-control-file" id="imagen">
+                          <input type="file" class="form-control-file" id="imagen" name="imagen" required>
                           </div>
                         </div>
 

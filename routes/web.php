@@ -25,11 +25,17 @@ Route::get('/cliente', function () {
 });
 
 
+Route::get('/producto', function () {
+    return view('producto');
+});
 
 
 Route::get('/crear_producto', function () {
     return view('PRODUCTO/crear_producto'); 
 });
+
+
+Route::post('/crearProducto','productoController@create');
 
 
 //clientes
@@ -39,9 +45,19 @@ Route::get('/crear_cliente', function () {
 
 //cierre_caja
 Route::get('/cierre_caja', function () {
-    return view('PRODUCTO/cierre_caja'); 
+    return view('VENTA/cierre_caja'); 
 });
 
+
+//cierre_caja2
+Route::get('/cierre_caja2', function () {
+    return view('VENTA/cierre_caja2'); 
+});
+
+//apertura_caja
+Route::get('/apertura_caja', function () {
+    return view('VENTA/apertura_caja'); 
+});
 
 
 Route::post('/crearPersona','usuarioController@create');

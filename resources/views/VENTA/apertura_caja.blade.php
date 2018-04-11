@@ -84,6 +84,7 @@
                   <a href="#"><i class="fa fa-calculator fa-lg"></i> Ventas <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="venta">
+                  <li><a href="/apertura_caja">Apertura caja</a></li>
                   <li>Registrar venta</li>
                   <li><a href="/cierre_caja">Cierre caja</a></li>
                   <li>Consultar ventas</li>
@@ -135,32 +136,21 @@
             <div class="well well-sm">
                 <form class="form-horizontal" method="post">
                     <fieldset>
-                        <legend class="text-center header">Cierre caja</legend>
-
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fecha" name="fecha" type="text" placeholder="Fecha" class="form-control">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="lname" name="usuario" type="text" placeholder=usuario class="form-control">
-                            </div>
-                        </div>
+                        <legend class="text-center header">Apertura de caja</legend>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="recuado" name="recuado" type="text" placeholder="Dinero recuadado" class="form-control">
+                                <input id="base" name="base" type="text" placeholder="Saldo base" class="form-control">
                             </div>
-                        </div>
+                        </div>      
+
+                        <label for="listaProductos">Lista de productos</label>
 
 
                        <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-success btn-lg">Siguiente</button>
+                                <button type="submit" class="btn btn-success btn-lg">Confirmar</button>
                             
                             </div>
                         </div>
@@ -171,11 +161,3 @@
         </div>
     </div>
 </div>
-
-
-
-
-
-
-  </body>
-</html>

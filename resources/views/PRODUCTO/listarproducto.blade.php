@@ -82,6 +82,7 @@
                   <a href="#"><i class="fa fa-calculator fa-lg"></i> Ventas <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="venta">
+                  <li><a href="/apertura_caja">Apertura caja</a></li>
                   <li>Registrar venta</li>
                   <li><a href="/cierre_caja">Cierre caja</a></li>
                   <li>Consultar ventas</li>

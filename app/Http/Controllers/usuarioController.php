@@ -50,17 +50,18 @@ class usuarioController extends Controller
             $dataclientes= array(
                 'nombres' => $request->nombre,
                 'apellidos' => $request->apellido,
-                'cedula' => $request->cedula,
+                'cedulaEntrante' => $request->numerocedula,
                 'direccion' => $request->direccion,
                 'telefono' => $request->telefono,
                 'rol' => $request->rol,
                 'tipoDocumento' => $request->tipoDocumento,
                 'username' => $request->username,
                 'email' => $request->email,
-                'password' => $request->password,
+                'password' => $request->password
                 //'foto' => './storage/'.$nombre
-                                );
-                cliente::crearcliente($dataclientes);
+            );
+            
+            cliente::crearcliente($dataclientes);
 
             
         //indicamos que queremos guardar un nuevo archivo en el public

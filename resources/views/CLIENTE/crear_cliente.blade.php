@@ -78,6 +78,7 @@
                   <a href="#"><i class="fa fa-calculator fa-lg"></i> Ventas <span class="arrow"></span></a>
                 </li>  
                 <ul class="sub-menu collapse" id="venta">
+                  <li><a href="/apertura_caja">Apertura caja</a></li>
                   <li>Registrar venta</li>
                   <li><a href="/cierre_caja">Cierre caja</a></li>
                   <li>Consultar ventas</li>
@@ -167,7 +168,7 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-cc bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="numero" name="numero" type="text" placeholder=" Número documento" class="form-control">
+                                <input id="numerocedula" name="numerocedula" type="text" placeholder=" Número documento" class="form-control">
                             </div>
                         </div>
 
@@ -215,7 +216,7 @@
                        <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-unlock-alt bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="contrasena" name="contrasena" type="password" placeholder="Contraseña" class="form-control">
+                                <input id="password" name="password" type="password" placeholder="Contraseña" class="form-control">
                             </div>
                         </div>
 
