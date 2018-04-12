@@ -26,6 +26,7 @@ protected $primaryKey='cedula';
       $contador = $users + 1;
    
    	  DB::table('users')->insert(array(
+        'idUsuario' => $contador,
        'username' => $data['username'],
        'email' => $data['email'],       
        'password' => $data['password']
@@ -34,10 +35,10 @@ protected $primaryKey='cedula';
 
 
       $contador = $contador++;
-     // $usuario = DB::table('users')->select('idUsuario')->where('email', '=', $data['email'])->get();
+      //$usuario = DB::table('users')->select('idUsuario')->where('email', '=', $data['email'])->get();
       //$id = DB:: select idUsuario from users where(users.email = email);
+      
       $nombreCompleto=$data['nombres']." ".$data['apellidos'];
-
 
      DB::table('clientes')->insert(array(
        'nombreCompleto' => $nombreCompleto,
@@ -45,7 +46,8 @@ protected $primaryKey='cedula';
        'direccion' => $data['direccion'],
        'telefono' => $data['telefono'],
        'rol' => $data['rol'],       
-       'tipoDocumento' => $data['tipoDocumento']
+       'tipoDocumento' => $data['tipoDocumento'],
+       'Usuario_idUsuario' => $contador
        
      ));
    }
