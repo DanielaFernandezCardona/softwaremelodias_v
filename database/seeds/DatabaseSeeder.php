@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Seeder;
-use Faker\Factory as Faker;
+
 
 class DatabaseSeeder extends Seeder
 {
@@ -12,7 +12,12 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert(array(
+
+
+		$this->call('usuariosSeeder');
+
+
+       /** DB::table('users')->insert(array(
        'idUsuario' => intval(56788764),
        'username' => 'odpndn',
        'email' => 'ajaddk@gmail.com',       
@@ -30,5 +35,6 @@ class DatabaseSeeder extends Seeder
        'users_idUsuario' => intval(56788764)
        
      ));
+     */
     }
 }
