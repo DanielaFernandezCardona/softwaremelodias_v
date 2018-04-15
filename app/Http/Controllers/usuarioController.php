@@ -18,8 +18,8 @@ class usuarioController extends Controller
         {
             
           $personas=DB::table('clientes')
-              ->join('users', 'users.idUsuario', '=', 'clientes.Usuario_idUsuario')
-              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.usarname','users.email', 'users.password')->get();
+              ->join('users', 'users.idUsuario', '=', 'clientes.users_idUsuario')
+              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
                
           return view('/CLIENTE/listar_Personas',['personas' => $personas]);
         
@@ -48,7 +48,7 @@ class usuarioController extends Controller
           $dataclientes= array(
               'nombres' => $request->nombre,
               'apellidos' => $request->apellido,
-              'cedulaEntrante' => $request->numerocedula,
+              'cedulaEntrante' => $request->cedula,
               'direccion' => $request->direccion,
               'telefono' => $request->telefono,
               'rol' => $request->rol,
@@ -67,7 +67,7 @@ class usuarioController extends Controller
 
         //return Redirect::to('CLIENTE/crear_cliente')->with('success','Registro Exitoso');
 
-        return \View('/CLIENTE/crear_cliente')
+       return \View('/CLIENTE/crear_cliente')
         ->with('success','Registro Exitoso');
               
 

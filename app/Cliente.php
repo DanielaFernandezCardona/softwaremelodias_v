@@ -26,12 +26,15 @@ protected $primaryKey='cedula';
       $contador = $users + 1;
    
    	  DB::table('users')->insert(array(
-        'idUsuario' => $contador,
+       'idUsuario' => intval($data['cedulaEntrante']),
        'username' => $data['username'],
        'email' => $data['email'],       
        'password' => $data['password']
 
       ));  
+
+
+
 
 
       $contador = $contador++;
@@ -47,7 +50,7 @@ protected $primaryKey='cedula';
        'telefono' => $data['telefono'],
        'rol' => $data['rol'],       
        'tipoDocumento' => $data['tipoDocumento'],
-       'Usuario_idUsuario' => $contador
+       'users_idUsuario' => intval($data['cedulaEntrante'])
        
      ));
    }

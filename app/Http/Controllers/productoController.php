@@ -13,9 +13,11 @@ class productoController extends Controller
     //
      public function index()
         {
-     $productosL=DB::table('productos')
-                ->select('codigoProducto','nombreProducto','descripcion','unidades','precioCompraUnidad', 'precioVentaUnidad')
+     $productos=DB::table('productos')
+                ->select('codigoProducto','nombreProducto','descripcion','unidades','preciocompra', 'precioventa', 'imagen')
                 ->get();
+
+                 return view('/PRODUCTO/listarproducto',['productos' => $productos]);
 
         }
 
@@ -41,27 +43,25 @@ class productoController extends Controller
 
             
             $dataproductos= array(
-            	'id' => $request->id,
-                'nombreProducto' => $request->nombre,
+                'nombreProducto' => $request->nombreProducto,
                 'descripcion' => $request->descripcion,
                 'unidades' => $request->unidades,
-                'precioCompraUnidad' => $request->precioCompra,
-                'precioVentaUnidad' => $request->precioVenta,
-                'imagen' => './storage/'.$nombre
+                'preciocompraunidad' => $request->preciocompraunidad,
+                'precioventaunidad' => $request->precioventaproducto,
+                'foto' => './storage/'.$nombre
             );
             
            producto::crearProducto($dataproductos);
-           // var_dump($dataproductos);
             //var_dump($request);
 
             
         //indicamos que queremos guardar un nuevo archivo en el public
-       //\Storage::disk('public')->put($nombre,  \File::get($file));
+       \Storage::disk('public')->put($nombre,  \File::get($file));
 
   //    return Redirect::to('CLIENTE/crear_cliente')->with('success','Registro Exitoso');
 
-       //return \View('/PRODUCTO/crear_producto')
-             //   ->with('success','Registro Exitoso');
+       return \View('/PRODUCTO/crear_producto')
+                ->with('success','Registro Exitoso');
               
 
         }

@@ -24,13 +24,12 @@ protected $primaryKey='codigoProducto';
    	//$nombreCompleto=$data['nombres'].$data['apellidos'];
 
    	 DB::table('productos')->insert(array(
-       'codigoProducto' => $data['codigoProducto'],
        'nombreProducto' => $data['nombreProducto'],
        'descripcion' => $data['descripcion'],
        'unidades' => $data['unidades'],
        'preciocompra' => $data['preciocompraunidad'],
        'precioventa' => $data['precioventaunidad'],      
-       'imagen' => $data['imagen'],
+       'imagen' => $data['foto']
        
      ));
 

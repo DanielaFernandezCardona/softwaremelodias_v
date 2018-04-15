@@ -38,6 +38,20 @@ Route::get('/crear_producto', function () {
 Route::post('/crearProducto','productoController@create');
 
 
+
+Route::post('/producto/search','agregarStockController@search');
+
+Route::get('/agregar_stock', ['as' => 'agregar_stock', 'uses' => 'agregarStockController@index']);
+
+
+
+
+Route::get('/listarproducto', ['as' => 'listarproducto', 'uses' => 'productoController@index']);
+
+Route::get('producto/destroy/{codigoProducto}', ['as' => 'producto/destroy', 'uses'=>'productoController@destroy']);
+
+
+
 //clientes
 Route::get('/crear_cliente', function () {
     return view('CLIENTE/crear_cliente'); 
@@ -59,6 +73,15 @@ Route::get('/apertura_caja', function () {
     return view('VENTA/apertura_caja'); 
 });
 
+Route::get('/crear_producto', function () {
+    return view('PRODUCTO/crear_producto'); 
+});
+
+/*
+Route::get('/agregar_stock', function () {
+    return view('PRODUCTO/agregar_stock'); 
+});
+*/
 
 Route::post('/crearPersona','usuarioController@create');
 
