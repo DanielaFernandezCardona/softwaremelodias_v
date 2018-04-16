@@ -16,7 +16,7 @@ class testPersona extends TestCase
     public function testPersonaDB()
     {
         $this->assertDatabaseHas('clientes', [
-        'cedula' => '1234567'
+        'cedula' => '1002'
 
     ]);
     }

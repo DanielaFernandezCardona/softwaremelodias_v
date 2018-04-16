@@ -50,6 +50,10 @@ Route::get('/listarproducto', ['as' => 'listarproducto', 'uses' => 'productoCont
 
 Route::get('producto/destroy/{codigoProducto}', ['as' => 'producto/destroy', 'uses'=>'productoController@destroy']);
 
+//logear
+//login
+Route::post('/logear','Auth\LoginController@postLogin');
+Route::get('/salir','Auth\LoginController@logout');
 
 
 //clientes

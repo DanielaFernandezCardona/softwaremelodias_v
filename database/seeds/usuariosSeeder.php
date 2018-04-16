@@ -15,12 +15,23 @@ class usuariosSeeder extends Seeder
         
 
 		  $faker = Faker::create();
-			for ($i=1000; $i < 1001; $i++) {
+			for ($i=2000; $i < 2050; $i++) {
 			    \DB::table('users')->insert(array(
-			           'idUsuario' => $faker->randomElement(['2000','9000','7890']),
-			           'username'  => $faker->firstNameFemale,
-			           'email' => $faker->randomElement(['chocolate','vainilla','cheesecake']),
-			           'password' => $faker->randomElement(['chocolate','vainilla','cheesecake'])
+			           'idUsuario' => $i,
+			           'username'  => $faker->userName,
+			           'email' => $faker->freeEmail,
+			           'password' => \Hash::make ('dfc')
+    ));
+
+
+                   \DB::table('clientes')->insert(array(
+                       'cedula' => $i,
+                       'nombreCompleto'  => $faker->name,
+                       'direccion' => $faker->address,
+                       'telefono' => $faker->phoneNumber,
+                       'rol' => $faker->randomElement(['cliente','empleado']),
+                       'tipoDocumento' => $faker->randomElement(['cedula','cedulaExtranjería','tarjetaIdentidad']),
+                       'users_idUsuario' => $i               
     ));
 }
     }
