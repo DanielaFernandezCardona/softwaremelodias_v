@@ -81,6 +81,15 @@ Route::get('/crear_producto', function () {
     return view('PRODUCTO/crear_producto'); 
 });
 
+Route::get('/registrar_venta', function () {
+    return view('VENTA/venta'); 
+});
+
+Route::get('/mesa', function () {
+    return view('MESA/mesa'); 
+});
+
+
 /*
 Route::get('/agregar_stock', function () {
     return view('PRODUCTO/agregar_stock'); 

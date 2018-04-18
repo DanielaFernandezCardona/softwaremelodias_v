@@ -25,8 +25,8 @@
        <th data-field="tipoDocumento"> Tipo Documento</th>
        <th data-field="username"> Username</th>
        <th data-field="email">Email</th>
-       <th data-field="password">Contrasena</th>
-       <!--<th data-field="foto"> foto</th>-->
+       <!--<th data-field="password">Contrasena</th>
+       <th data-field="foto"> foto</th>-->
      </tr>
    </thead>
    <tbody>
@@ -40,7 +40,7 @@
       <td style="text-align: center;">{{$persona->tipoDocumento}}</td> 
       <td>{{$persona->username}}</td> 
       <td>{{$persona->email}}</td> 
-      <td>{{$persona->password}}</td>    
+      <!---<td>{{$persona->password}}</td>-->
       <td><img src="./storage/313247_171303399615225_971034462_n.jpg" alt="{{$persona->nombreCompleto}}" class="img-responsive" widht="300" height="300"  /></td>
 
       <td>

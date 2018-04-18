@@ -13,7 +13,7 @@ class productoSeeder extends Seeder
     public function run()
     {
          $faker = Faker::create();
-      for ($i=1000; $i < 1020; $i++) {
+      for ($i=3000; $i < 3005; $i++) {
           \DB::table('productos')->insert(array(
                  'codigoProducto' => $i,
                  'nombreProducto'  => $faker->randomElement(['cerveza águila','cerveza poker','cerveza']),

@@ -18,7 +18,7 @@ class usuarioController extends Controller
         {
             
           $personas=DB::table('clientes')
-              ->join('users', 'users.idUsuario', '=', 'clientes.users_idUsuario')
+              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
               ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
                
           return view('/CLIENTE/listar_Personas',['personas' => $personas]);

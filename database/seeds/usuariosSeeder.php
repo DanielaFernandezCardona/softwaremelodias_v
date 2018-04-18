@@ -15,9 +15,9 @@ class usuariosSeeder extends Seeder
         
 
 		  $faker = Faker::create();
-			for ($i=2000; $i < 2050; $i++) {
+			for ($i=2000; $i < 2005; $i++) {
 			    \DB::table('users')->insert(array(
-			           'idUsuario' => $i,
+			           'id' => $i,
 			           'username'  => $faker->userName,
 			           'email' => $faker->freeEmail,
 			           'password' => \Hash::make ('dfc')

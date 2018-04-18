@@ -82,7 +82,7 @@
         </li>  
         <ul class="sub-menu collapse" id="venta">
           <li><a href="/apertura_caja">Apertura caja</a></li>
-          <li>Registrar venta</li>
+          <li><a href="/registrar_venta">Registrar venta</a></li>
           <li><a href="/cierre_caja">Cierre caja</a></li>
           <li>Consultar ventas</li>
         </ul>
@@ -121,6 +121,14 @@
             <i class="fa fa-calendar fa-lg"></i> Citas
           </a>
         </li>
+
+
+        <li data-toggle="collapse" data-target="#mesa" class="collapsed">
+          <a href="#"><i class="fa fa-barsfa-lg"></i> Mesas <span class="arrow"></span></a>
+        </li>
+        <ul class="sub-menu collapse" id="mesa">
+          <li><a href="/mesa">Crear mesa</a></li>
+        </ul>
 
 
       </ul>

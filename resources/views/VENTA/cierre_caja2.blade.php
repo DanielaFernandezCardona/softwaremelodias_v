@@ -32,7 +32,8 @@
 
                        <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-success btn-lg">Siguiente</button>
+                               <!-- <button type="submit" class="btn btn-success btn-lg">Confirmar</button>-->
+                               <input type="button" class="btn btn-success btn-lg"  value="Confirmar" onclick="window.location.href='/registrar_Venta'">
                             
                             </div>
                         </div>
