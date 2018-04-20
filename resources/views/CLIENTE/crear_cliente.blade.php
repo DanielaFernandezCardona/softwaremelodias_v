@@ -16,7 +16,7 @@
                 <strong>Bien!</strong> {!! session('success') !!}.
               </div>
                  @endif
-
+                  <!--nada-->
 
                 <form class="form-horizontal" method="post" action="/crearPersona"  enctype="multipart/form-data" >
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
