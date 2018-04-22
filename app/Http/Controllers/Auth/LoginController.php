@@ -86,7 +86,6 @@ class LoginController extends Controller
                 //var_dump("ingreso2");
 
            }
-           
 
        }
 

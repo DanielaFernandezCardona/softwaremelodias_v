@@ -10,6 +10,10 @@ use DB;
 
 class productoController extends Controller
 {
+
+
+
+
     //
      public function index()
         {
@@ -64,6 +68,34 @@ class productoController extends Controller
                 ->with('success','Registro Exitoso');
               
 
+        }
+
+
+        public function updateProducto( Request $request)
+        {
+
+
+
+           $dataproductos= array(
+                'codigo' => $request->formData['codigo'],
+                'unidades' => $request->formData['unidadesproducto']
+                 );
+
+           //producto::producto($dataproductos);
+          
+            
+ $producto = producto::find($dataproductos['codigo']);
+   $copia=$producto;
+  
+   $producto->nombreProducto =$copia->nombreProducto;
+   $producto->descripcion = $copia->descripcion;
+   $producto->unidades =$copia->unidades + $data['unidades'];
+   $producto->preciocompra = $copia->preciocompra;
+   $producto->precioventa = $copia->precioventa;
+   $producto->imagen = $copia->imagen;
+   $producto->save();   
+ echo "proceso Exitoso";
+           
         }
 
           

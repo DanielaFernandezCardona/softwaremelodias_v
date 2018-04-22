@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\cliente;
 use Redirect;
 use DB;
-
+use Auth;
 
 
 class usuarioController extends Controller
@@ -23,6 +23,28 @@ class usuarioController extends Controller
                
           return view('/CLIENTE/listar_Personas',['personas' => $personas]);
         
+        }
+
+
+
+        public function index2(){
+
+
+            // Obtiene el objeto del Usuario Autenticado
+            $person = Auth::user();
+
+              $persona=DB::table('clientes')
+              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
+              ->Where('clientes.users_idUsuario',"=",$person->id) 
+              ->first();
+
+              //var_dump($persona->email);
+
+         
+          return view('/CLIENTE/misdatos',['persona' => $persona]);
+            
+
         }
 
 
@@ -77,4 +99,16 @@ class usuarioController extends Controller
           cliente::destroycliente($idCedula);
           return redirect('/listar_Personas');
       }
+
+
+   public function updateCliente(Request $request){
+
+     cliente::updateCliente($request);
+      return redirect('/mis_datos');
+
+
+   }
+
+
+
 }

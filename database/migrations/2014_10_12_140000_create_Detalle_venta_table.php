@@ -14,7 +14,7 @@ class CreateDetalleVentaTable extends Migration
     public function up()
     {
         Schema::create('Detalle_Ventas', function (Blueprint $table) {
-            $table->increments()('idDetalleVenta');
+            $table->increments('idDetalleVenta');
             $table->string('cantidad')->nullable();
             $table->string('costoTotalVenta')->nullable();
             $table->string('fechaVenta')->nullable();
@@ -27,7 +27,7 @@ class CreateDetalleVentaTable extends Migration
                     ->references('codigoVenta')->on('venta')
                     ->onDelete('cascade');
 
-            $table->rememberToken();
+           
             $table->timestamps();
         });
     }

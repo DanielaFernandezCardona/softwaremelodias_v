@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Redirect;
 use DB;
+use App\User;
 
 
 class cliente extends Model
@@ -63,6 +64,26 @@ protected $primaryKey='cedula';
         $cliente = Cliente::find($idcedula);
         $cliente->delete();
 
+      }
+
+      public static function updateCliente($cliente){
+
+        $clientebd=cliente::find($cliente->id);
+        $clientebd ->cedula = $cliente ->cedula;
+        $clientebd ->nombreCompleto = $cliente ->nombreCompleto;
+        $clientebd ->direccion = $cliente ->direccion;
+        $clientebd ->telefono = $cliente ->telefono;
+        $clientebd ->rol = $cliente ->rol;
+        $clientebd ->tipoDocumento = $cliente ->tipoDocumento;
+        
+
+        $userbd=User::find($cliente->id);
+        $userbd ->username = $cliente ->username;
+        $userbd ->email = $cliente ->email;
+        $userbd ->password = $cliente ->password;
+
+         $clientebd->save(); 
+         $userbd->save();
       }
  
 

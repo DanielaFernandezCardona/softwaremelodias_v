@@ -28,6 +28,29 @@
                         </form>
 
                         <legend class="text-center header">Lista de productos</legend>
+                        @if(isset($details))
+                        <p> El resultado de la busqueda  <b> {{ $query }} </b> es</p>
+                        <h2>Detalles del producto</h2>
+                        <table class="table table-striped" >
+                              <th>Codigo Producto</th>
+                              <th>Nombre Producto</th>
+                              <th>Unidades Producto</th>
+                              <th>Acción</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach($details as $article)
+                            <tr>
+                              <td ><input type="text" id="codigo" name="codigo" value="{{$article->codigoProducto}}" style="border:0;" readonly></td>
+                              <td ><input type="text" id="nombre" name="nombre" value="{{$article->nombreProducto}}" style="border:0;" readonly></td>
+                              <td><input type="text" id="unidades" name="unidades"><td>
+                               <td>    <input type="button" class="btn btn-success btn-lg"  value="Agregar" onclick="pruebaAjax();"></td>
+                            
+                                </tr>
+                                @endforeach
+                              </tbody>
+                            </table>
+                            @endif
 
                        <div class="form-group">
                             <div class="col-md-12 text-center">
@@ -36,38 +59,10 @@
                             </div>
                         </div>
 
-                <div class="row">
-      <div  style="width:800px; " >
-        <h1 class="page-header" style="color:BLACK;text-align: center;">LISTADO DE PRODUCTOS</h1>
-      </div>
-    </div>
+        
 
 
-    <table class="table table-hover" style="background-color:white;color:black; " >
-     <thead>
-      <tr>
-       <th data-field="codigoProducto" style="text-align: center;" data-align="right" >Código Producto</th>
-       <th data-field="nombreProducto" style="text-align: center;">Nombre Producto</th>       
-     </tr>
-   </thead>
-   <tbody>
-    @if($articles->count())
-                @foreach($articles as $article)
-                <tr>
-                    <td>{{ $article->codigoProducto }}</td>
-                    <td>{{ $article->nombreProducto }}</td>
-                     <td><input type="text" name="unidades" id="unidades" ></td>   
-                </tr>
-                @endforeach
-            @else
-            <tr>
-                <td colspan="3">no encontro el producto</td>
-            </tr>
-            @endif
 
-
-  </tbody>
-  </table>
        
       
             </div>
@@ -75,14 +70,45 @@
     </div>
 </div>
 
-@if (count($articles) === 0)
-       ... html showing no articles found
-       @elseif (count($articles) >= 1)
-       ... print out results
-       @foreach($articles as $article)
-       print article
-       @endforeach
-       @endif
 
+
+<script type="text/javascript">
+  
+  function pruebaAjax(){
+    var codigoProducto=document.getElementById("codigo").value;
+    var nombreProducto=document.getElementById("nombre").value;
+    var unidades=document.getElementById("unidades").value;
+console.log("cassd"+codigoProducto);
+  console.log("12312"+nombreProducto);
+  console.log("1231232"+unidades);
+
+
+var formData = {codigo:codigoProducto,unidadesproducto:unidades}; //Array 
+ var CSRF_TOKEN = $('meta[name="csrf-token"]').attr('content');
+
+// _token: '{{csrf_token()}}'
+
+
+
+
+$.ajax({
+    url : "/update_Producto",
+    type: "POST",
+    data : {formData, _token: '{{csrf_token()}}' },
+    success: function(data, textStatus, jqXHR)
+    {
+       alert(data);
+    },
+    error: function (jqXHR, textStatus, errorThrown)
+    {
+         console.log("error");
+    }
+});
+
+
+
+  }
+
+</script>
 
 @endsection

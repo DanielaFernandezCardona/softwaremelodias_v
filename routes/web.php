@@ -15,10 +15,20 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('login',array('as'=>'login',function()
+    {
+            return view('login');
+     }
+));
 
-Route::get('/login', function () {
-    return view('login');
-});
+Route::post('/logear','Auth\LoginController@postLogin');
+Route::get('/salir','Auth\LoginController@logout');
+
+
+
+//grupo privado
+Route::group(['middleware'=>'auth'],function(){
+
 
 Route::get('/cliente', function () {
     return view('cliente');
@@ -36,6 +46,7 @@ Route::get('/crear_producto', function () {
 
 
 Route::post('/crearProducto','productoController@create');
+Route::post('/update_Producto','productoController@updateProducto');
 
 
 
@@ -52,14 +63,31 @@ Route::get('producto/destroy/{codigoProducto}', ['as' => 'producto/destroy', 'us
 
 //logear
 //login
-Route::post('/logear','Auth\LoginController@postLogin');
-Route::get('/salir','Auth\LoginController@logout');
 
 
 //clientes
 Route::get('/crear_cliente', function () {
     return view('CLIENTE/crear_cliente'); 
 });
+
+//update cliente
+Route::post('/update_Usuario','usuarioController@updateCliente');
+
+//update cliente de mis datos
+Route::post('usuario/update',['as'=>'usuario/update', 'uses'=>'usuarioController@updateCliente']);
+
+
+
+
+//get mis datos
+/*
+Route::get('/mis_datos', function () {
+    return view('CLIENTE/misdatos'); 
+});
+*/
+Route::get('/mis_datos', ['as' => 'listar_Personas', 'uses' => 'usuarioController@index2']);
+
+
 
 //cierre_caja
 Route::get('/cierre_caja', function () {
@@ -103,7 +131,7 @@ Route::get('/listar_Personas', ['as' => 'listar_Personas', 'uses' => 'usuarioCon
 Route::get('persona/destroy/{cedula}', ['as' => 'persona/destroy', 'uses'=>'usuarioController@destroy']);
 
 
-
+});//cierra grupo
 
 
 
