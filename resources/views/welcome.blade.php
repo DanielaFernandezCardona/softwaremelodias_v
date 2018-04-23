@@ -19,7 +19,7 @@
         <nav class="menu">
             <ul>
                 <li><a href="#" style="background:#df6666;color:white;">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
+                <li><a href="nosotros">Nosotros</a></li>
                 <li><a href="#">Servicios</a></li>
                 <li><a href="#">Trabajos</a></li>
             </ul>

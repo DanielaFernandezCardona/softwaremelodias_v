@@ -15,6 +15,10 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::get('/nosotros', function () {
+    return view('nosotros');
+});
+
 Route::get('login',array('as'=>'login',function()
     {
             return view('login');
@@ -34,14 +38,13 @@ Route::get('/cliente', function () {
     return view('cliente');
 });
 
-
 Route::get('/producto', function () {
     return view('producto');
 });
 
 
 Route::get('/crear_producto', function () {
-    return view('PRODUCTO/crear_producto'); 
+    return view('PRODUCTO/crear_producto');
 });
 
 
@@ -67,7 +70,7 @@ Route::get('producto/destroy/{codigoProducto}', ['as' => 'producto/destroy', 'us
 
 //clientes
 Route::get('/crear_cliente', function () {
-    return view('CLIENTE/crear_cliente'); 
+    return view('CLIENTE/crear_cliente');
 });
 
 //update cliente
@@ -82,7 +85,7 @@ Route::post('usuario/update',['as'=>'usuario/update', 'uses'=>'usuarioController
 //get mis datos
 /*
 Route::get('/mis_datos', function () {
-    return view('CLIENTE/misdatos'); 
+    return view('CLIENTE/misdatos');
 });
 */
 Route::get('/mis_datos', ['as' => 'listar_Personas', 'uses' => 'usuarioController@index2']);
@@ -91,36 +94,36 @@ Route::get('/mis_datos', ['as' => 'listar_Personas', 'uses' => 'usuarioControlle
 
 //cierre_caja
 Route::get('/cierre_caja', function () {
-    return view('VENTA/cierre_caja'); 
+    return view('VENTA/cierre_caja');
 });
 
 
 //cierre_caja2
 Route::get('/cierre_caja2', function () {
-    return view('VENTA/cierre_caja2'); 
+    return view('VENTA/cierre_caja2');
 });
 
 //apertura_caja
 Route::get('/apertura_caja', function () {
-    return view('VENTA/apertura_caja'); 
+    return view('VENTA/apertura_caja');
 });
 
 Route::get('/crear_producto', function () {
-    return view('PRODUCTO/crear_producto'); 
+    return view('PRODUCTO/crear_producto');
 });
 
 Route::get('/registrar_venta', function () {
-    return view('VENTA/venta'); 
+    return view('VENTA/venta');
 });
 
 Route::get('/mesa', function () {
-    return view('MESA/mesa'); 
+    return view('MESA/mesa');
 });
 
 
 /*
 Route::get('/agregar_stock', function () {
-    return view('PRODUCTO/agregar_stock'); 
+    return view('PRODUCTO/agregar_stock');
 });
 */
 
@@ -132,6 +135,3 @@ Route::get('persona/destroy/{cedula}', ['as' => 'persona/destroy', 'uses'=>'usua
 
 
 });//cierra grupo
-
-
-
