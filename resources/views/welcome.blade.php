@@ -1,82 +1,89 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
-    <title>@yield('title') | Panel de administración</title>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Servicio web BILLARLANDIA</title>
+    <link rel="stylesheet" href="iconos/css/fontello.css">
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel="stylesheet" href="css/estilos-index.css">
+    <link rel="stylesheet" href="css/footer.css">
 
-  </head>
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+</head>
+<body>
+    <header>
+        <img src="images/logo_magtimus3.png" class="img-logo">
+        <input type="checkbox" id="check">
+        <label for="check" class="icon-menu"></label>
 
-  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <nav class="menu">
+            <ul>
+                <li><a href="#" style="background:#df6666;color:white;">Inicio</a></li>
+                <li><a href="#">Nosotros</a></li>
+                <li><a href="#">Servicios</a></li>
+                <li><a href="#">Trabajos</a></li>
+            </ul>
+        </nav>
+    </header>
 
-<!-- ////////////////////////////////////////////////////////////////////////// -->
-
-
-<div class="container">
-  <!-- Topper w/ logo -->
-  <div class="row hidden-xs topper">
-    <div class="col-xs-7 col-sm-7">
-      <a href="//convertify.io"><img am-TopLogo alt="SECUREVIEW"  src="http://blog.convertify.io/assets/images/logo--hero.png" class="img-responsive"></a>
-    </div>
-    <div class="col-xs-5 col-xs-offset-1 col-sm-5 col-sm-offset-0 text-right ">
-      <p am-CallNow>1 (888) CALL - NOW</p>
-    </div>
-  </div> <!-- End Topper -->
-  <!-- Navigation -->
-  <div class="row">
-    <nav class="navbar navbar-inverse" role="navigation">
-      <div class="container">
-        <!-- Brand and toggle get grouped for better mobile display -->
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-            <span class="sr-only">Toggle navigation</span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <!--- <a class="navbar-brand visible-xs-inline-block nav-logo" href="/"><img src="/images/logo-dark-inset.png" class="img-responsive" alt=""></a> -->
+    <main>
+        <div class="content-one">
+            <div class="content-portada">
+                <div class="content-item1">
+                    <h4>“A carambola errada, taco en guardia” <h3>“En el juego del billar, media bola y apretar”</h3> </h4>
+                    <h2>ESTE ES MI JUEGO!.</h2>
+                </div>
+            </div>
         </div>
+        <div class="content-two">
+            <div class="content-details">
+                <div class="content-item2">
+                    <label class="icon-heart"></label>
+                    <h4>Diseño</h4>
+                    <p>En construcción...</p>
 
-        <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-          <ul class="nav navbar-nav js-nav-add-active-class">
-            <li><a href="/index.html">Home</a></li>
-            <li class="active"><a href="/markets.html">Markets</a></li>
-            <li><a href="/buy.html">Buy</a></li>
-            <li><a href="/svstrike.html">svStrike</a></li>
-            <li><a href="/training.html">Training</a></li>
+                </div>
+                <div class="content-item2">
+                    <label class="icon-laptop"></label>
+                    <h4>Bootstrap-Plantilla</h4>
+                    <p>En construcción...</p>
 
-            <li><a href="{{ url('/crear_cliente') }}">PRUEBA</a></li>
+                </div>
+                <div class="content-item2">
+                    <label class="icon-support"></label>
+                    <h4>Soporte</h4>
+                    <p>En construcción...</p>
 
-
-            <li class="visible-xs-block"><a href="/about.html">About Us</a></li>
-            <li class="visible-xs-block"><a href="/careers.html">Careers</a></li>
-            <li class="visible-xs-block"><a href="/press-release.html">Press Release</a></li>
-            <li class="visible-xs-block"><a href="https://susteen7.zendesk.com/hc/en-us">Support</a></li>
-            <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown">Company <b class="caret"></b></a>
-              <ul class="dropdown-menu" role="menu">
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="careers.html">Careers</a></li>
-                <li><a href="press-release.html">Press Release</a></li>
-              </ul>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right hidden-xs">
-            <a type="button" class="navbar-btn btn btn-gradient-blue" am-latosans="bold" href="https://susteen7.zendesk.com/hc/en-us">Support</a>
-          </ul>
-        </div><!-- /.navbar-collapse -->
-      </div>
-    </nav>
-  </div>
-</div>
-
-
-
-  <body class="hold-transition skin-blue sidebar-mini">
-<img src="http://todofondos.com/bin/fondos/07/59/17d.jpg" style="width:100%">
-  </body>
+                </div>
+            </div>
+        </div>
+        <div class="content-three">
+            <div class="content-module">
+                <h3>MULTI.FUNCIONALIDAD</h3>
+                <img src="images/img2.png">
+                <img src="images/img3.png">
+                <img src="images/img4.png">
+            </div>
+        </div>
+        <div class="content-for">
+            <div class="content-item3">
+                <h4>ESTE ES EL PRIMER DISEÑO DE LA PAGINA DE INICIO</h4>
+                <p>Nos estamos preparando para lo que vienes, NO SE LO CUENTES A NADIE!...</p>
+                <p>mm...  Bueno, mejor si! :)</p>
+                <img src="images/img5.png">
+            </div>
+            <div class="content-five">
+                <div class="content-item4">
+                    <h4>GRACIAS POR VISITAR NUESTRO SITIO, LO ESTAMOS CONSTRUYENDO...</h4>
+                    <p>Las grandes ideas toman tiempo...</p>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <label class="icon-twitter"></label>
+        <label class="icon-facebook"></label>
+        <label class="icon-instagram"></label>
+    </footer>
+</body>
 </html>
