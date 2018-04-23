@@ -3,16 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <title>Servicio web BILLARLANDIA</title>
-    <link rel="stylesheet" href="iconos/css/fontello.css">
-    <link rel="stylesheet" href="css/menu.css">
-    <link rel="stylesheet" href="css/estilos-index.css">
-    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="welcome/iconos/css/fontello.css">
+    <link rel="stylesheet" href="welcome/css/menu.css">
+    <link rel="stylesheet" href="welcome/css/estilos-index.css">
+    <link rel="stylesheet" href="welcome/css/footer.css">
 
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
     <header>
-        <img src="images/logo_magtimus3.png" class="img-logo">
+        <img src="welcome/images/logo_magtimus3.png" class="img-logo">
         <input type="checkbox" id="check">
         <label for="check" class="icon-menu"></label>
 
@@ -60,17 +60,17 @@
         <div class="content-three">
             <div class="content-module">
                 <h3>MULTI.FUNCIONALIDAD</h3>
-                <img src="images/img2.png">
-                <img src="images/img3.png">
-                <img src="images/img4.png">
+                <img src="welcome/images/img2.png">
+                <img src="welcome/images/img3.png">
+                <img src="welcome/images/img4.png">
             </div>
         </div>
         <div class="content-for">
             <div class="content-item3">
                 <h4>ESTE ES EL PRIMER DISEÑO DE LA PAGINA DE INICIO</h4>
-                <p>Nos estamos preparando para lo que vienes, NO SE LO CUENTES A NADIE!...</p>
+                <p>Nos estamos preparando para lo que viene, NO SE LO CUENTES A NADIE!...</p>
                 <p>mm...  Bueno, mejor si! :)</p>
-                <img src="images/img5.png">
+                <img src="welcome/images/img5.png">
             </div>
             <div class="content-five">
                 <div class="content-item4">
@@ -81,9 +81,9 @@
         </div>
     </main>
     <footer>
-        <label class="icon-twitter"></label>
-        <label class="icon-facebook"></label>
-        <label class="icon-instagram"></label>
+        <a title="Twitter" href="https://twitter.com/?lang=es"><label class="icon-twitter" /></a>
+        <a title="Facebook" href="https://es-la.facebook.com"><label class="icon-facebook" /></a>
+        <a title="Instagram" href="https://www.instagram.com/?hl=es-la"><label class="icon-instagram" /></a>
     </footer>
 </body>
 </html>
