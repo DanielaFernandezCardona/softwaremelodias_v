@@ -19,6 +19,10 @@ Route::get('/nosotros', function () {
     return view('nosotros');
 });
 
+Route::get('/servicios', function () {
+    return view('servicios');
+});
+
 Route::get('login',array('as'=>'login',function()
     {
             return view('login');

@@ -18,10 +18,10 @@
 
         <nav class="menu">
             <ul>
-                <li><a href="#" style="background:#df6666;color:white;">Inicio</a></li>
-                <li><a href="#">Nosotros</a></li>
-                <li><a href="#">Servicios</a></li>
-                <li><a href="#">Trabajos</a></li>
+                <li><a href="/">Inicio</a></li>
+                <li><a href="servicios">Servicios</a></li>
+                <li><a href="nosotros" style="background:#df6666;color:white;">Conactanos</a></li>
+                <li><a href="login">Login</a></li>
             </ul>
         </nav>
     </header>
