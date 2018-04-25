@@ -64,7 +64,8 @@
         <ul class="sub-menu collapse" id="usuario">
           <li><a href="/crear_cliente">Crear Persona</a></li>
           <li><a href="/listar_Personas">Listar Personas</a></li>
-          <li><a href="#">Mis Datos</a></li>
+          <li><a href="/mis_datos">Mis datos</a></li>
+         
         </ul>
 
 

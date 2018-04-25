@@ -104,11 +104,50 @@ class usuarioController extends Controller
    public function updateCliente(Request $request){
 
      cliente::updateCliente($request);
-      return redirect('/mis_datos');
+
+$persona=DB::table('clientes')
+              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
+              ->Where('clientes.users_idUsuario',"=",$request->id) 
+              ->first();
 
 
+      //return redirect('/mis_datos');
+        
+return redirect()->route('CLIENTE.misdatos',['persona' => $persona])
+       ->with('success','modificados');
+
+// return \View('/CLIENTE/misdatos')
+//        ->withSuccess('Datos modificados correctamente')
+  //      ->with();
+        
    }
 
 
+
+        public function search(Request $request){
+
+           $searchTerm = $request->nombreCliente;
+                
+                 
+            $persona=DB::table('clientes')
+              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+              ->select('clientes.nombreCompleto','users.id')
+              ->Where('clientes.nombreCompleto','LIKE', '%' . $searchTerm . '%') 
+              ->first();           
+
+          if(!empty($persona)){
+               $p['nombreCompleto']=$persona->nombreCompleto;
+              return view('/VENTA/venta',['persona' => $p]);
+            
+          } 
+            else{
+               $persona['nombreCompleto']="Cliente no encontrado";
+              return view('/VENTA/venta',['persona' => $persona]);
+            
+            }
+           
+    
+}
 
 }

@@ -26,6 +26,17 @@ class productoController extends Controller
         }
 
 
+          public function index2()
+        {
+     $productos=DB::table('productos')
+                ->select('codigoProducto','nombreProducto','descripcion','unidades','preciocompra', 'precioventa', 'imagen')
+                ->get();
+
+                 return view('/VENTA/apertura_caja',['productos' => $productos]);
+
+        }
+
+
       /**
          *  Registra un producto
          * @param trae los datos necesarios para crear un registro de la bd.
@@ -82,20 +93,28 @@ class productoController extends Controller
                  );
 
            //producto::producto($dataproductos);
-          
-            
- $producto = producto::find($dataproductos['codigo']);
-   $copia=$producto;
-  
-   $producto->nombreProducto =$copia->nombreProducto;
-   $producto->descripcion = $copia->descripcion;
-   $producto->unidades =$copia->unidades + $data['unidades'];
-   $producto->preciocompra = $copia->preciocompra;
-   $producto->precioventa = $copia->precioventa;
-   $producto->imagen = $copia->imagen;
-   $producto->save();   
- echo "proceso Exitoso";
-           
+                    
+                   
+                       
+  $producto = producto::find($dataproductos['codigo']);
+  $unidadTotal=$producto->unidades + $dataproductos['unidades'];
+
+
+   //$producto->nombreProducto =$copia->nombreProducto;
+   //$producto->descripcion = $copia->descripcion;
+   //$producto->unidades =
+  // $producto->preciocompra = $copia->preciocompra;
+   //$producto->precioventa = $copia->precioventa;
+   //$producto->imagen = $copia->imagen;
+   //$producto->save();  
+   
+   
+ producto::where('codigoProducto',$dataproductos['codigo'])
+           ->update(['unidades'=>$unidadTotal ]);
+                       
+                     
+           var_dump( "proceso Exitoso");
+ 
         }
 
           

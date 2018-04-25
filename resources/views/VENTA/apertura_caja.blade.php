@@ -21,21 +21,60 @@
                             </div>
                         </div>      
 
-                        
-                        <legend class="text-center header">Lista de productos</legend>
-
-                       <div class="form-group">
-                            <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-success btn-lg">Confirmar</button>
-                            
-                            </div>
-                        </div>
 
                     </fieldset>
                 </form>
-            </div>
-        </div>
+
+<!--Inicia tabla--> 
+<div class="container" style="width:400px; text-align: center; "> 
+    <div class="row">
+      <div  style="width:460px; " >
+        <h1 class="page-header" style="color:BLACK;text-align: center;">LISTADO DE PRODUCTOS</h1>
+      </div>
+    </div>
+
+
+    <table class="table table-hover" style="background-color:white;color:black; " >
+     <thead>
+      <tr>
+       <th data-field="codigoProducto" style="text-align: center;" data-align="right" >Código Producto</th>
+       <th data-field="nombreProducto" style="text-align: center;">Nombre Producto</th>
+       <th data-field="descripcion" style="text-align: center;"> Descripcion</th>
+       <th data-field="unidades" style="text-align: center;"> Unidades</th>
+       <th data-field="imagen" style="text-align: center;"> Imagen</th>
+     </tr>
+   </thead>
+   <tbody>
+     <tr>
+      @foreach($productos as $producto)
+      <td>{{$producto->codigoProducto}}</td>
+      <td>{{$producto->nombreProducto}}</td>
+      <td>{{$producto->descripcion}}</td>
+      <td>{{$producto->unidades}}</td>
+      <td><img src="./storage/313247_171303399615225_971034462_n.jpg" alt="{{$producto->nombreProducto}}" class="img-responsive" widht="300" height="300"  /></td> 
+
+
+     </tr>
+   @endforeach
+  </tbody>
+  </table>
+
+  <div class="form-group">
+     <div class="col-md-12 text-center">
+        <button type="submit" class="btn btn-success btn-lg">Confirmar</button>
+
     </div>
 </div>
+
+  </div><!--Finaliza tabla--> 
+
+
+            </div>
+
+        </div>
+    </div>
+
+</div>
+
 
 @endsection

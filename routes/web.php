@@ -29,6 +29,11 @@ Route::get('login',array('as'=>'login',function()
      }
 ));
 
+Route::get('misdatos', function () {
+    return redirect('CLIENTE/misdatos');
+});
+
+
 Route::post('/logear','Auth\LoginController@postLogin');
 Route::get('/salir','Auth\LoginController@logout');
 
@@ -56,8 +61,13 @@ Route::post('/crearProducto','productoController@create');
 Route::post('/update_Producto','productoController@updateProducto');
 
 
-
+//busca un producto
 Route::post('/producto/search','agregarStockController@search');
+
+//busca un cliente en la bd
+Route::post('/cliente/search','usuarioController@search');
+
+
 
 Route::get('/agregar_stock', ['as' => 'agregar_stock', 'uses' => 'agregarStockController@index']);
 
@@ -65,6 +75,25 @@ Route::get('/agregar_stock', ['as' => 'agregar_stock', 'uses' => 'agregarStockCo
 
 
 Route::get('/listarproducto', ['as' => 'listarproducto', 'uses' => 'productoController@index']);
+
+Route::get('/registrar_venta', ['as' => 'listaUsuario', 'uses' => 'ventaController@index']);
+
+
+/*
+Route::get('/registrar_venta', function () {
+    return view('VENTA/venta');
+});
+*/
+
+
+//apertura caja, lista de productos
+Route::get('/apertura_caja', ['as' => 'listarproducto', 'uses' => 'productoController@index2']);
+
+/*
+Route::get('/apertura_caja', function () {
+    return view('VENTA/apertura_caja');
+}); 
+*/
 
 Route::get('producto/destroy/{codigoProducto}', ['as' => 'producto/destroy', 'uses'=>'productoController@destroy']);
 
@@ -107,18 +136,16 @@ Route::get('/cierre_caja2', function () {
     return view('VENTA/cierre_caja2');
 });
 
-//apertura_caja
+/*apertura_caja
 Route::get('/apertura_caja', function () {
     return view('VENTA/apertura_caja');
-});
+});*/
 
 Route::get('/crear_producto', function () {
     return view('PRODUCTO/crear_producto');
 });
 
-Route::get('/registrar_venta', function () {
-    return view('VENTA/venta');
-});
+
 
 Route::get('/mesa', function () {
     return view('MESA/mesa');
@@ -139,3 +166,4 @@ Route::get('persona/destroy/{cedula}', ['as' => 'persona/destroy', 'uses'=>'usua
 
 
 });//cierra grupo
+
