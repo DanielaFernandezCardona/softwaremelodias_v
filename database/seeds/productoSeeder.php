@@ -19,8 +19,8 @@ class productoSeeder extends Seeder
                  'nombreProducto'  => $faker->randomElement(['cerveza águila','cerveza poker','cerveza']),
                  'descripcion' => $faker->text($maxNbChars = 20),
                  'unidades' => $faker->numberBetween($min = 4, $max = 20),
-                 'preciocompra' => $faker->numberBetween($min = 4000, $max = 30000),
-                 'precioventa' => $faker->numberBetween($min = 4000, $max = 30000),
+                 'precioCompraUnidad' => $faker->numberBetween($min = 4000, $max = 30000),
+                 'precioVentaUnidad' => $faker->numberBetween($min = 4000, $max = 30000),
                  'unidades' => $faker->numberBetween($min = 4000, $max = 30000), 
                  'imagen' => $faker->randomElement(['http://www.discordoba.com/images/stories/virtuemart/product/EL3817.png','https://cloud10.todocoleccion.online/coleccionismo-cerveza/tc/2016/10/05/10/61882220.jpg'])
     ));

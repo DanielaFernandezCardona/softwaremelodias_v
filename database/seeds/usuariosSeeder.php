@@ -31,7 +31,7 @@ class usuariosSeeder extends Seeder
                        'telefono' => $faker->phoneNumber,
                        'rol' => $faker->randomElement(['cliente','empleado']),
                        'tipoDocumento' => $faker->randomElement(['cedula','cedulaExtranjería','tarjetaIdentidad']),
-                       'users_idUsuario' => $i               
+                       'user_id' => $i               
     ));
 }
     }
