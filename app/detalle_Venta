@@ -11,8 +11,8 @@ use App\User;
 class cliente extends Model
 {
     
-protected $table = 'ventas';
-protected $primaryKey='codigoVenta';
+protected $table = 'detalleventas';
+protected $primaryKey='idDetalleVenta';
 
 
   /**

@@ -13,18 +13,20 @@ class CreateDetalleVentaTable extends Migration
      */
     public function up()
     {
-        Schema::create('Detalle_Ventas', function (Blueprint $table) {
+        Schema::create('Detalleventas', function (Blueprint $table) {
             $table->increments('idDetalleVenta');
             $table->string('cantidad')->nullable();
             $table->string('costoTotalVenta')->nullable();
+            $table->string('producto_codigoProducto')->nullable();
+            $table->string('venta_codigoVenta')->nullable();
             $table->string('fechaVenta')->nullable();
 
-             $table->foreign('producto_id')
-                    ->references('codigoProducto')->on('producto')
+             $table->foreign('producto_codigoProducto')
+                    ->references('codigoProducto')->on('productos')
                     ->onDelete('cascade');
 
-            $table->foreign('venta_id')
-                    ->references('codigoVenta')->on('venta')
+            $table->foreign('venta_codigoVentas')
+                    ->references('codigoVenta')->on('ventas')
                     ->onDelete('cascade');
 
            
