@@ -10,7 +10,7 @@ use App\User;
 
 class cliente extends Model
 {
-    
+
 protected $table = 'clientes';
 protected $primaryKey='cedula';
 
@@ -18,21 +18,21 @@ protected $primaryKey='cedula';
   /**
     * Registra un cliente en la base de datos
     * @param trae los datos necesarios para crear un registro de la bd.
-    * 
+    *
     */
    public static function crearCliente($data)
    {
 
       $users = DB::table('users')->count();
       $contador = $users + 1;
-   
+
    	  DB::table('users')->insert(array(
        'idUsuario' => intval($data['cedulaEntrante']),
        'username' => $data['username'],
-       'email' => $data['email'],       
+       'email' => $data['email'],
        'password' => $data['password']
 
-      ));  
+      ));
 
 
 
@@ -41,7 +41,7 @@ protected $primaryKey='cedula';
       $contador = $contador++;
       //$usuario = DB::table('users')->select('idUsuario')->where('email', '=', $data['email'])->get();
       //$id = DB:: select idUsuario from users where(users.email = email);
-      
+
       $nombreCompleto=$data['nombres']." ".$data['apellidos'];
 
      DB::table('clientes')->insert(array(
@@ -49,10 +49,10 @@ protected $primaryKey='cedula';
        'cedula' => intval($data['cedulaEntrante']),
        'direccion' => $data['direccion'],
        'telefono' => $data['telefono'],
-       'rol' => $data['rol'],       
+       'rol' => $data['rol'],
        'tipoDocumento' => $data['tipoDocumento'],
        'users_idUsuario' => intval($data['cedulaEntrante'])
-       
+
      ));
    }
 
@@ -75,17 +75,24 @@ protected $primaryKey='cedula';
         $clientebd ->telefono = $cliente ->telefono;
         $clientebd ->rol = $cliente ->rol;
         $clientebd ->tipoDocumento = $cliente ->tipoDocumento;
-        
+
 
         $userbd=User::find($cliente->id);
         $userbd ->username = $cliente ->username;
         $userbd ->email = $cliente ->email;
         $userbd ->password = $cliente ->password;
 
-         $clientebd->save(); 
+         $clientebd->save();
          $userbd->save();
       }
- 
+
+      public function users_idUsuario()
+      {
+        //cuando se quiera acceder al usuario de un determinado clientes se debe utilizar
+        //el siguiente codigo.
+        //$usuario = Cliente::find(1)->user;
+        return $this->hasOne('App\User');
+      }
 
 
 
