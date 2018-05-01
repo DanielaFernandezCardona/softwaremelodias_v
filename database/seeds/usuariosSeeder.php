@@ -12,7 +12,13 @@ class usuariosSeeder extends Seeder
      */
     public function run()
     {
-        
+      DB::table('users')->insert(array(
+             'id' => 1098,
+             'username'  => 'pepitoAdmin',
+             'email' => 'pepito@gmail.com',
+             'password' => bcrypt('pepito'),
+             'type' => 'admin'
+      ));
 
 		  $faker = Faker::create();
 			for ($i=2006; $i < 2009; $i++) {
@@ -24,14 +30,21 @@ class usuariosSeeder extends Seeder
     ));
 
 
-                   \DB::table('clientes')->insert(array(
-                       'cedula' => $i,
-                       'nombreCompleto'  => $faker->name,
-                       'direccion' => $faker->address,
-                       'telefono' => $faker->phoneNumber,
-                       'rol' => $faker->randomElement(['cliente','empleado']),
-                       'tipoDocumento' => $faker->randomElement(['cedula','cedulaExtranjería','tarjetaIdentidad']),
-                       'user_id' => $i               
+     \DB::table('clientes')->insert(array(
+         'cedula' => $i,
+         'nombreCompleto'  => $faker->name,
+         'direccion' => $faker->address,
+         'telefono' => $faker->phoneNumber,
+         'rol' => $faker->randomElement(['cliente','empleado']),
+         'tipoDocumento' => $faker->randomElement(['cedula','cedulaExtranjería','tarjetaIdentidad']),
+         'user_id' => $i
+    ));
+
+    \DB::table('premios')->insert(array(
+        'id' => $i,
+        'nombre' => $faker->randomElement(['Viaje','200 mil','300 mil','1 millon de pesos']),
+        'tipo' => $faker->randomElement(['Consumo','Efectivo','Redimible']),
+        'descripcion' => $faker->paragraph
     ));
 }
     }
