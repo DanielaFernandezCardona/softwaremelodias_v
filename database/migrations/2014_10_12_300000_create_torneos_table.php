@@ -15,16 +15,11 @@ class CreateTorneoTable extends Migration
     {
         Schema::create('torneos', function (Blueprint $table) {
             $table->increments('idTorneo');
-            $table->integer('cantidadJugadores');
-            $table->date('fechaInicio');
-            $table->date('fechaFin');
+            $table->integer('cantidadJugadores')->nullable();
+            $table->date('fechaInicio')->nullable();
+            $table->date('fechaFin')->nullable();
             $table->timestamps();
 
-            //Columna foranea para el premio
-            $table->integer('premios_idPremio')->unsigned();
-            $table->foreign('premios_idPremio')
-                  ->references('idPremio')->on('premios')
-                  ->onDelete('cascade');
         });
     }
 
@@ -35,6 +30,6 @@ class CreateTorneoTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('torneos');
+        Schema::dropIfExists('premios');
     }
 }

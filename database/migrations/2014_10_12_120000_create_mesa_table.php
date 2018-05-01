@@ -13,14 +13,14 @@ class CreateMesaTable extends Migration
      */
     public function up()
     {
-        Schema::create('mesas', function (Blueprint $table) {
+        Schema::create('mesa', function (Blueprint $table) {
             $table->increments('codigoMesa');
-            $table->integer('numeroMesa')->nullable();
+            $table->string('numeroMesa')->nullable();
             $table->string('tipoMesa')->nullable();
-            $table->integer('valor5Minutos')->nullable();
-            $table->date('tiempoInicio')->nullable();
-            $table->integer('cantidadPersonas')->nullable();
-           
+            $table->string('valor5Minutos')->nullable();
+            $table->string('tiempoInicio')->nullable();
+            $table->rememberToken();
+            $table->timestamps();
         });
     }
 
@@ -31,6 +31,6 @@ class CreateMesaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('mesas');
+        Schema::dropIfExists('mesa');
     }
 }

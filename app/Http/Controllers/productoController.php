@@ -13,7 +13,7 @@ class productoController extends Controller
 
 
 
-X
+
     //
      public function index()
         {
@@ -96,8 +96,8 @@ X
                     
                    
                        
-            $producto = producto::find($dataproductos['codigo']);
-            $unidadTotal=$producto->unidades + $dataproductos['unidades'];
+  $producto = producto::find($dataproductos['codigo']);
+  $unidadTotal=$producto->unidades + $dataproductos['unidades'];
 
 
    //$producto->nombreProducto =$copia->nombreProducto;
