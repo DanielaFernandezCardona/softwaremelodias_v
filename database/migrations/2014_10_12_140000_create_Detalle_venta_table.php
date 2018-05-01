@@ -13,20 +13,19 @@ class CreateDetalleVentaTable extends Migration
      */
     public function up()
     {
-        Schema::create('Detalle_Ventas', function (Blueprint $table) {
-            $table->engine = 'InnoDB';    
+        Schema::create('detalleventas', function (Blueprint $table) {   
             $table->increments('idDetalleVenta');
-            $table->string('cantidad')->nullable();
-            $table->string('costoTotalVenta')->nullable();
-            $table->string('fechaVenta')->nullable();
-            $table->integer('producto_id')->unsigned();
-            $table->integer('venta_id')->unsigned();
+            $table->integer('cantidadProductos')->nullable();
+            $table->integer('costoTotalVenta')->nullable();
+            $table->date('fechaVenta')->nullable();
+            $table->integer('producto_codigoProducto')->unsigned();
+            $table->integer('venta_codigoVenta')->unsigned();
 
-             $table->foreign('producto_id')
+             $table->foreign('producto_codigoProducto')
                     ->references('codigoProducto')->on('productos')                    
                     ->onDelete('cascade');
 
-            $table->foreign('venta_id')
+            $table->foreign('venta_codigoVenta')
                     ->references('codigoVenta')->on('ventas')
                     ->onDelete('cascade');
 
@@ -42,6 +41,6 @@ class CreateDetalleVentaTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('Detalle_Ventas');
+        Schema::dropIfExists('detalleventas');
     }
 }

@@ -21,12 +21,11 @@ class CreateClienteTable extends Migration
             $table->string('telefono')->nullable();
             $table->string('rol')->nullable();
             $table->string('tipoDocumento')->nullable();
-            $table->integer('user_id')->unsigned();
+            $table->integer('users_idUsuario')->unsigned();
 
-            $table->foreign('user_id')
+            $table->foreign('users_idUsuario')
                     ->references('id')->on('users')
                     ->onDelete('cascade');
-          $table->timestamps();
         });
     }
 

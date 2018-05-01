@@ -104,7 +104,7 @@ Route::get('producto/destroy/{codigoProducto}', ['as' => 'producto/destroy', 'us
 //logear
 //login
 
-
+    
 //clientes
 Route::get('/crear_cliente', function () {
     return view('CLIENTE/crear_cliente');
