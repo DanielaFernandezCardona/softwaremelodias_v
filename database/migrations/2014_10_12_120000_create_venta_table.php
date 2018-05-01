@@ -15,17 +15,13 @@ class CreateVentaTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->increments('codigoVenta');
+            $table->string('concepto')->nullable();
             $table->string('estado')->nullable();
-            $table->string('tiempoFinal')->nullable();
-            $table->integer('cliente_id')->unsigned();
-            $table->integer('mesa_id')->unsigned();
+            $table->double('tiempoFinal');
+            $table->integer('mesa_codigoMesa')->unsigned();
 
-            $table->foreign('mesa_id')
-                    ->references('codigoMesa')->on('mesa')
-                    ->onDelete('cascade');
-
-             $table->foreign('cliente_id')
-                    ->references('cedula')->on('clientes')
+            $table->foreign('mesa_codigoMesa')
+                    ->references('codigoMesa')->on('mesas')
                     ->onDelete('cascade');
 
            
