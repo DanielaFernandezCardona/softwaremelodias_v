@@ -18,12 +18,9 @@ class CreateProductoTable extends Migration
             $table->string('nombreProducto')->nullable();
             $table->string('descripcion')->nullable();
             $table->integer('unidades')->nullable();
-            $table->integer('precioCompraUnidad')->nullable();
-            $table->integer('precioVentaUnidad')->nullable();
-            $table->integer('fecha')->nullable();
+            $table->integer('preciocompra')->nullable();
+            $table->integer('precioventa')->nullable();
             $table->string('imagen')->nullable();
-            $table->rememberToken();
-            $table->timestamps();
         
         });
     }
