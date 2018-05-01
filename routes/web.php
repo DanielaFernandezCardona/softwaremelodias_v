@@ -23,6 +23,10 @@ Route::get('/servicios', function () {
     return view('servicios');
 });
 
+Route::get('/registrarse', function () {
+    return view('servicios');
+});
+
 Route::get('login',array('as'=>'login',function()
     {
             return view('login');
@@ -92,7 +96,7 @@ Route::get('/apertura_caja', ['as' => 'listarproducto', 'uses' => 'productoContr
 /*
 Route::get('/apertura_caja', function () {
     return view('VENTA/apertura_caja');
-}); 
+});
 */
 
 Route::get('producto/destroy/{codigoProducto}', ['as' => 'producto/destroy', 'uses'=>'productoController@destroy']);
@@ -166,4 +170,3 @@ Route::get('persona/destroy/{cedula}', ['as' => 'persona/destroy', 'uses'=>'usua
 
 
 });//cierra grupo
-
