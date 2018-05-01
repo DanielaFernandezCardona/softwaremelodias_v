@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePuntoTable extends Migration
+class CreatePuntosTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,7 +23,7 @@ class CreatePuntoTable extends Migration
             //Foranea del cliente que posee puntos
             $table->integer('clientes_cedula')->unsigned();
             $table->foreign('clientes_cedula')
-                    ->references('cedula')->on('clientes')
+                    ->references('idCliente')->on('clientes')
                     ->onDelete('cascade');
 
             //Foranea para la mesa en la cual se ganaron los puntos

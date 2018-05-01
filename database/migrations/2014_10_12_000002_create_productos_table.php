@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateProductoTable extends Migration
+class CreateProductosTable extends Migration
 {
     /**
      * Run the migrations.

@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateReservaTable extends Migration
+class CreateReservasTable extends Migration
 {
     /**
      * Run the migrations.
@@ -27,7 +27,7 @@ class CreateReservaTable extends Migration
              //Foranea para el cliente que hace la reserva
              $table->integer('clientes_cedula')->unsigned();
              $table->foreign('clientes_cedula')
-                    ->references('cedula')->on('clientes')
+                    ->references('idCliente')->on('clientes')
                     ->onDelete('cascade');
         });
     }

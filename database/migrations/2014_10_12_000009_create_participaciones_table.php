@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateParticipacionTable extends Migration
+class CreateParticipacionesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -23,7 +23,7 @@ class CreateParticipacionTable extends Migration
             //foranea para la tabla cliente
             $table->integer('clientes_cedula')->unsigned();
             $table->foreign('clientes_cedula')
-                    ->references('cedula')->on('clientes')
+                    ->references('idCliente')->on('clientes')
                     ->onDelete('cascade');
 
             //foranea para la tabla torneo
