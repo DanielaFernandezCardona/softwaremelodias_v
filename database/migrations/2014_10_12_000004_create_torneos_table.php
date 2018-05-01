@@ -18,14 +18,14 @@ class CreateTorneoTable extends Migration
             $table->integer('cantidadJugadores');
             $table->date('fechaInicio');
             $table->date('fechaFin');
+            $table->string('descripcion')->nullable();
             $table->timestamps();
 
-            //campo para la foranea de premios
+            //Foranea del cliente que posee puntos
             $table->integer('premios_idPremio')->unsigned();
             $table->foreign('premios_idPremio')
                     ->references('idPremio')->on('premios')
                     ->onDelete('cascade');
-
         });
     }
 

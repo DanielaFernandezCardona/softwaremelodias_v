@@ -15,17 +15,16 @@ class CreateVentaTable extends Migration
     {
         Schema::create('ventas', function (Blueprint $table) {
             $table->increments('codigoVenta');
-            $table->string('concepto')->nullable();
-            $table->string('estado')->nullable();
+            $table->string('concepto');
+            $table->string('estado');
             $table->double('tiempoFinal');
-            $table->integer('mesa_codigoMesa')->unsigned();
+            $table->timestamps();
 
+            //se crea la relacion de foranea para la mesa correspondiente
+            $table->integer('mesa_codigoMesa')->nullable()->unsigned();
             $table->foreign('mesa_codigoMesa')
                     ->references('codigoMesa')->on('mesas')
                     ->onDelete('cascade');
-
-           
-            $table->timestamps();
         });
     }
 

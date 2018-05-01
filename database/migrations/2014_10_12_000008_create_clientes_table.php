@@ -14,15 +14,16 @@ class CreateClienteTable extends Migration
     public function up()
     {
         Schema::create('clientes', function (Blueprint $table) {
-             $table->increments('cedula');
-            //$table->integer('cedula')->primary();
-            $table->string('nombreCompleto')->nullable();
+            $table->primary('cedula');
+            $table->string('tipoDocumento');
+            $table->string('nombreCompleto');
             $table->string('direccion')->nullable();
             $table->string('telefono')->nullable();
             $table->string('rol')->nullable();
-            $table->string('tipoDocumento')->nullable();
-            $table->integer('users_idUsuario')->unsigned();
+            $table->timestamps();
 
+            //Foranea para el usuario que le corresponde al cliente
+            $table->integer('users_idUsuario')->unsigned();
             $table->foreign('users_idUsuario')
                     ->references('id')->on('users')
                     ->onDelete('cascade');

@@ -15,11 +15,10 @@ class CreatePremioTable extends Migration
     {
         Schema::create('premios', function (Blueprint $table) {
             $table->increments('idPremio');
-            $table->string('nombre');
+            $table->string('nombrePremio');
             $table->string('tipo');
             $table->string('descripcion')->nullable();
             $table->timestamps();
-
         });
     }
 
