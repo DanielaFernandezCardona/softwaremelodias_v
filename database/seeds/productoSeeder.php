@@ -17,18 +17,12 @@ class productoSeeder extends Seeder
           \DB::table('productos')->insert(array(
                  'codigoProducto' => $i,
                  'nombreProducto'  => $faker->randomElement(['cerveza águila','cerveza poker','cerveza']),
+                 'unidadesDisponibles' => $faker->numberBetween($min = 4, $max = 20),
+                 'precioCompra' => $faker->numberBetween($min = 4000, $max = 30000),
+                 'precioVenta' => $faker->numberBetween($min = 4000, $max = 30000),
                  'descripcion' => $faker->text($maxNbChars = 20),
-                 'unidades' => $faker->numberBetween($min = 4, $max = 20),
-                 'precioCompraUnidad' => $faker->numberBetween($min = 4000, $max = 30000),
-                 'precioVentaUnidad' => $faker->numberBetween($min = 4000, $max = 30000),
-                 'unidades' => $faker->numberBetween($min = 4000, $max = 30000), 
                  'imagen' => $faker->randomElement(['http://www.discordoba.com/images/stories/virtuemart/product/EL3817.png','https://cloud10.todocoleccion.online/coleccionismo-cerveza/tc/2016/10/05/10/61882220.jpg'])
-    ));
-}
+          ));
+      }
     }
 }
-
-/*
-$faker->randomElement(['cerveza águila','cerveza poker','cerveza Reds','vive 100','agua','cerveza costeña','1L aguardiente cristal','1L Ron Viejo de Caldas','cerveza Club Colombia', ,'Gaseosa','cerveza Michelada','1/2 Ron','1/2 Aguardiente cristal']
-
-*/
