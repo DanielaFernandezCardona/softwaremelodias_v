@@ -11,18 +11,18 @@ use Auth;
 
 class usuarioController extends Controller
 {
-    
+
 
 
  public function index()
         {
-            
+
           $personas=DB::table('clientes')
               ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
               ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
-               
+
           return view('/CLIENTE/listar_Personas',['personas' => $personas]);
-        
+
         }
 
 
@@ -36,14 +36,14 @@ class usuarioController extends Controller
               $persona=DB::table('clientes')
               ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
               ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
-              ->Where('clientes.users_idUsuario',"=",$person->id) 
+              ->Where('clientes.users_idUsuario',"=",$person->id)
               ->first();
 
               //var_dump($persona->email);
 
-         
+
           return view('/CLIENTE/misdatos',['persona' => $persona]);
-            
+
 
         }
 
@@ -56,17 +56,17 @@ class usuarioController extends Controller
      */
         public function create( Request $request)
         {
-            
+
           //obtenemos el campo file definido en el formulario
 
           // $file = $request->file('foto');
-     
+
            /**obtenemos el nombre del archivo
               * $nombre = $file->getClientOriginalName();
               * $extension = $file->getClientOriginalExtension();
               */
 
-            
+
           $dataclientes= array(
               'nombres' => $request->nombre,
               'apellidos' => $request->apellido,
@@ -80,10 +80,10 @@ class usuarioController extends Controller
               'password' => $request->password
               //'foto' => './storage/'.$nombre
           );
-          
+
           cliente::crearcliente($dataclientes);
 
-            
+
         //indicamos que queremos guardar un nuevo archivo en el public
         //Storage::disk('public')->put($nombre,  \File::get($file));
 
@@ -91,7 +91,7 @@ class usuarioController extends Controller
 
        return \View('/CLIENTE/crear_cliente')
         ->with('success','Registro Exitoso');
-              
+
 
       }
 
@@ -108,19 +108,19 @@ class usuarioController extends Controller
 $persona=DB::table('clientes')
               ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
               ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
-              ->Where('clientes.users_idUsuario',"=",$request->id) 
+              ->Where('clientes.users_idUsuario',"=",$request->id)
               ->first();
 
 
       //return redirect('/mis_datos');
-        
+
 return redirect()->route('CLIENTE.misdatos',['persona' => $persona])
        ->with('success','modificados');
 
 // return \View('/CLIENTE/misdatos')
 //        ->withSuccess('Datos modificados correctamente')
   //      ->with();
-        
+
    }
 
 
@@ -128,26 +128,26 @@ return redirect()->route('CLIENTE.misdatos',['persona' => $persona])
         public function search(Request $request){
 
            $searchTerm = $request->nombreCliente;
-                
-                 
+
+
             $persona=DB::table('clientes')
               ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
               ->select('clientes.nombreCompleto','users.id')
-              ->Where('clientes.nombreCompleto','LIKE', '%' . $searchTerm . '%') 
-              ->first();           
+              ->Where('clientes.nombreCompleto','LIKE', '%' . $searchTerm . '%')
+              ->first();
 
           if(!empty($persona)){
                $p['nombreCompleto']=$persona->nombreCompleto;
               return view('/VENTA/venta',['persona' => $p]);
-            
-          } 
+
+          }
             else{
                $persona['nombreCompleto']="Cliente no encontrado";
               return view('/VENTA/venta',['persona' => $persona]);
-            
+
             }
-           
-    
+
+
 }
 
 }
