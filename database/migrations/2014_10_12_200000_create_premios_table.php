@@ -15,9 +15,9 @@ class CreatePremioTable extends Migration
     {
         Schema::create('premios', function (Blueprint $table) {
             $table->increments('idPremio');
-            $table->string('nombre')->nullable();
-            $table->string('tipo')->nullable();
-            $table->string('descripcion');
+            $table->string('nombre');
+            $table->string('tipo');
+            $table->string('descripcion')->nullable();
             $table->timestamps();
 
         });

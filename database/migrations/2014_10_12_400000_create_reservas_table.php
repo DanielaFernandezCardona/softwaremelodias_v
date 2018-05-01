@@ -13,7 +13,7 @@ class CreateReservasTable extends Migration
      */
     public function up()
     {
-        Schema::create('reservas', function (Blueprint $table) {   
+        Schema::create('reservas', function (Blueprint $table) {
             $table->increments('idreservas');
               $table->integer('mesas_codigoMesa')->unsigned();
               $table->integer('clientes_cedula')->unsigned();
@@ -24,11 +24,11 @@ class CreateReservasTable extends Migration
                     ->onDelete('cascade');
 
              $table->foreign('clientes_cedula')
-                    ->references('cedula')->on('clientes')                    
+                    ->references('cedula')->on('clientes')
                     ->onDelete('cascade');
 
-            
-           
+
+
             $table->timestamps();
         });
     }
