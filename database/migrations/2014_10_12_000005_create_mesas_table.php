@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreatePremiosTable extends Migration
+class CreateMesaTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,13 +13,13 @@ class CreatePremiosTable extends Migration
      */
     public function up()
     {
-        Schema::create('premios', function (Blueprint $table) {   
-            $table->increments('idpremio');
-            $table->string('descripcion')->nullable();
-            $table->string('nombre')->nullable();
-            $table->string('tipo')->nullable();
-
-           
+        Schema::create('mesas', function (Blueprint $table) {
+            $table->increments('codigoMesa');
+            $table->integer('numeroMesa');
+            $table->string('tipoMesa');
+            $table->double('valor5Minutos');
+            $table->date('tiempoInicio');
+            $table->integer('cantidadPersonas');
             $table->timestamps();
         });
     }
@@ -31,6 +31,6 @@ class CreatePremiosTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('premios');
+        Schema::dropIfExists('mesas');
     }
 }
