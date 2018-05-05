@@ -3,53 +3,56 @@
 <head>
     <meta charset="UTF-8">
     <title>Servicio web BILLARLANDIA</title>
-    <link rel="stylesheet" href="welcome/iconos/css/fontello.css">
-    <link rel="stylesheet" href="welcome/css/menu.css">
-    <link rel="stylesheet" href="welcome/css/estilos-index.css">
-    <link rel="stylesheet" href="welcome/css/footer.css">
-
 
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+    <link rel="stylesheet" href="welcome/iconos/css/fontello.css">
+    <link rel="stylesheet" href="welcome/css/menu.css">
+    <link rel="stylesheet" href="welcome/css/estilos-index.css">
+    <link rel="stylesheet" href="welcome/css/footer.css">
 
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 <body>
     <header>
         <img src="welcome/images/logo_magtimus3.png" class="img-logo">
-        <label for="check" class="icon" style="color: white;">Melodias Billares'Software </label>
-
         <input type="checkbox" id="check">
         <label for="check" class="icon-menu"></label>
 
         <nav class="menu">
             <ul>
                 <li><a href="/" style="background:#df6666;color:white;">Inicio</a></li>
-                <li><a href="/productosWelcome">Productos</a></li>
+                <li><a href="productos">Productos</a></li>
                 <li><a href="nosotros">Contactanos</a></li>
-                <li><a href="/registrarUsuario">Registrate</a></li>
                 <li><a href="login">Login</a></li>
             </ul>
         </nav>
     </header>
 
-    <main>
-        <div class="content-one">
-            <div class="content-portada">
-                <div class="content-item1">
-                    <h2>ESTE ES MI JUEGO!.</h2>
-                </div>
-            </div>
-        </div>
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/bDQDMK9Yo0M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
- 
-</div>
+    
         
-    </main>
+    <div class="container">
+     <div class="row">
+
+     @foreach($productos as $producto)
+    
+    <div class="col-sm-4 jumbotron text-center" style="margin-top: 7%; ">
+          
+          <p>{{$producto->nombreProducto}}</p>
+          <img src="{{$producto->imagen}}"   widht="300" height="300">
+          <p>{{$producto->precioventa}}  </p>
+
+        </div>
+
+     
+   @endforeach
+    
+</div>
+</div> 
+
     <footer>
         <a title="Twitter" href="https://twitter.com/?lang=es"><label class="icon-twitter" /></a>
         <a title="Facebook" href="https://es-la.facebook.com"><label class="icon-facebook" /></a>

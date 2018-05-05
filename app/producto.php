@@ -18,7 +18,7 @@ protected $primaryKey='codigoProducto';
     * @param trae los datos necesarios para crear un registro de la bd.
     * 
     */
-   public static function crearProducto($data)
+   public static function crearProductos($data)
    {
 
    	//$nombreCompleto=$data['nombres'].$data['apellidos'];

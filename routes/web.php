@@ -44,7 +44,7 @@ Route::get('/salir','Auth\LoginController@logout');
 
 
 //grupo privado
-Route::group(['middleware'=>'auth'],function(){
+//Route::group(['middleware'=>'auth'],function(){
 
 
 Route::get('/cliente', function () {
@@ -168,5 +168,14 @@ Route::get('/listar_Personas', ['as' => 'listar_Personas', 'uses' => 'usuarioCon
 
 Route::get('persona/destroy/{cedula}', ['as' => 'persona/destroy', 'uses'=>'usuarioController@destroy']);
 
+Route::get('/productosWelcome', ['as' => 'listarproducto', 'uses' => 'productoController@index3']);
 
-});//cierra grupo
+
+//});//cierra grupo
+
+
+Route::get('/registrarUsuario', function () {
+    return view('CLIENTE/registrarUsuario');
+});
+
+Route::post('/crearPersona1','usuarioController@create1');

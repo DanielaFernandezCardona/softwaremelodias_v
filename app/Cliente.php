@@ -27,10 +27,10 @@ protected $primaryKey='cedula';
       $contador = $users + 1;
 
    	  DB::table('users')->insert(array(
-       'idUsuario' => intval($data['cedulaEntrante']),
+       'id' => intval($data['cedulaEntrante']),
        'username' => $data['username'],
        'email' => $data['email'],
-       'password' => $data['password']
+       'password' => \Hash::make ($data['password'])
 
       ));
 

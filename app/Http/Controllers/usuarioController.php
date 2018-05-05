@@ -81,6 +81,104 @@ class usuarioController extends Controller
               //'foto' => './storage/'.$nombre
           );
 
+
+ $admin=   DB::table('clientes')->where('rol','administrador')->count();
+
+
+if($admin<2&& $dataclientes['rol']=='administrador'){
+
+
+
+      $personas=DB::table('clientes')
+              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
+
+
+          cliente::crearcliente($dataclientes);
+
+       return \View('/CLIENTE/crear_cliente')
+        ->with('success','Registro Exitoso');
+
+  
+} else{
+
+     return \View('/CLIENTE/crear_cliente')
+        ->with('success','No se pudo registrar');
+
+}
+
+
+
+
+ $empleado=DB::table('clientes')->where('rol','empleado')->count();
+
+
+
+if($empleado<1 && $dataclientes['rol']=='empleado'){
+
+
+      $personas=DB::table('clientes')
+              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
+
+
+          cliente::crearcliente($dataclientes);
+
+       return \View('/CLIENTE/crear_cliente')
+        ->with('success','Registro Exitoso');
+
+}else{
+
+     return \View('/CLIENTE/crear_cliente')
+        ->with('success','No se pudo registrar');
+
+
+
+}
+
+
+
+
+
+
+
+        //indicamos que queremos guardar un nuevo archivo en el public
+        //Storage::disk('public')->put($nombre,  \File::get($file));
+
+        //return Redirect::to('CLIENTE/crear_cliente')->with('success','Registro Exitoso');
+
+
+
+      }
+
+
+ public function create1( Request $request)
+        {
+
+          //obtenemos el campo file definido en el formulario
+
+          // $file = $request->file('foto');
+
+           /**obtenemos el nombre del archivo
+              * $nombre = $file->getClientOriginalName();
+              * $extension = $file->getClientOriginalExtension();
+              */
+
+
+          $dataclientes= array(
+              'nombres' => $request->nombre,
+              'apellidos' => $request->apellido,
+              'cedulaEntrante' => $request->cedula,
+              'direccion' => $request->direccion,
+              'telefono' => $request->telefono,
+              'rol' => "cliente",
+              'tipoDocumento' => $request->tipoDocumento,
+              'username' => $request->username,
+              'email' => $request->email,
+              'password' => $request->password
+              //'foto' => './storage/'.$nombre
+          );
+
           cliente::crearcliente($dataclientes);
 
 
@@ -89,11 +187,17 @@ class usuarioController extends Controller
 
         //return Redirect::to('CLIENTE/crear_cliente')->with('success','Registro Exitoso');
 
-       return \View('/CLIENTE/crear_cliente')
+       return \View('login')
         ->with('success','Registro Exitoso');
 
 
       }
+
+
+
+
+
+
 
       public function destroy($idCedula){
           cliente::destroycliente($idCedula);

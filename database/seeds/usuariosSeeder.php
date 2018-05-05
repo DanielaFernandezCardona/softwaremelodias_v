@@ -12,6 +12,8 @@ class usuariosSeeder extends Seeder
      */
     public function run()
     {
+
+        /*
       DB::table('users')->insert(array(
              'id' => 1098,
              'username'  => 'pepitoAdmin',
@@ -19,7 +21,7 @@ class usuariosSeeder extends Seeder
              'password' => bcrypt('pepito'),
              'type' => 'admin'
       ));
-
+*/
 		  $faker = Faker::create();
 			for ($i=2006; $i < 2009; $i++) {
 			    \DB::table('users')->insert(array(
@@ -37,15 +39,17 @@ class usuariosSeeder extends Seeder
          'telefono' => $faker->phoneNumber,
          'rol' => $faker->randomElement(['cliente','empleado']),
          'tipoDocumento' => $faker->randomElement(['cedula','cedulaExtranjería','tarjetaIdentidad']),
-         'user_id' => $i
+         'users_idUsuario' => $i
     ));
 
+/*
     \DB::table('premios')->insert(array(
         'id' => $i,
         'nombre' => $faker->randomElement(['Viaje','200 mil','300 mil','1 millon de pesos']),
         'tipo' => $faker->randomElement(['Consumo','Efectivo','Redimible']),
         'descripcion' => $faker->paragraph
     ));
+    */
 }
     }
 }

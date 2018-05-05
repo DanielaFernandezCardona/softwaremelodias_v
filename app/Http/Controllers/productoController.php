@@ -13,7 +13,7 @@ class productoController extends Controller
 
 
 
-X
+
     //
      public function index()
         {
@@ -35,6 +35,20 @@ X
                  return view('/VENTA/apertura_caja',['productos' => $productos]);
 
         }
+
+
+
+    public function index3()
+        {
+     $productos=DB::table('productos')
+                ->select('nombreProducto','precioventa', 'imagen')
+                ->get();
+
+                 return view('/PRODUCTO/listaproductoWelcome',['productos' => $productos]);
+
+        }
+
+
 
 
       /**
@@ -66,9 +80,20 @@ X
                 'foto' => './storage/'.$nombre
             );
             
-           producto::crearProducto($dataproductos);
+           //producto::crearProductos($dataproductos);
             //var_dump($request);
 
+DB::table('productos')->insert(array(
+       'nombreProducto' => $dataproductos['nombreProducto'],
+       'descripcion' => $dataproductos['descripcion'],
+       'unidades' => $dataproductos['unidades'],
+       'preciocompra' => $dataproductos['preciocompraunidad'],
+       'precioventa' => $dataproductos['precioventaunidad'],      
+       'imagen' => $dataproductos['foto']
+       
+     ));
+
+     
             
         //indicamos que queremos guardar un nuevo archivo en el public
        \Storage::disk('public')->put($nombre,  \File::get($file));

@@ -39,11 +39,28 @@ return [
             'prefix' => '',
         ],
 
+/*
+        'mysql' => [
+            'driver' => 'mysql',
+            'host' => env('DB_HOST', 'us-cdbr-iron-east-04.cleardb.net'),
+            'port' => env('DB_PORT', '3306'),
+            'database' => env('DB_DATABASE', 'heroku_0520f431847861c'),
+            'username' => env('DB_USERNAME', 'b7f5d05992ec91'),
+            'password' => env('DB_PASSWORD', 'b70f9d36'),
+            'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'strict' => true,
+            'engine' => null,
+        ],
+        */
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
             'port' => env('DB_PORT', '3306'),
-            'database' => env('DB_DATABASE', 'melodias2'),
+            'database' => env('DB_DATABASE', 'melodias'),
             'username' => env('DB_USERNAME', 'root'),
             'password' => env('DB_PASSWORD', '12345'),
             'unix_socket' => env('DB_SOCKET', ''),
