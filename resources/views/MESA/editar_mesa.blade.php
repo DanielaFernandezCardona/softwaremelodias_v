@@ -1,5 +1,5 @@
 @extends('layout.panel')
-@section('title', 'Registrar mesa')
+@section('title', 'Editar mesa')
 
 @Section('contenido')
 
@@ -21,7 +21,7 @@
                 <form class="form-horizontal" method="post" action="/crearPersona"  enctype="multipart/form-data" >
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
-                        <legend class="text-center header">Formulario mesas</legend>
+                        <legend class="text-center header">Editar mesas</legend>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
@@ -50,7 +50,7 @@
 
                        <div class="form-group">
                             <div class="col-md-12 text-center">
-                                <button type="submit" class="btn btn-success btn-lg">Guardar</button>
+                                <button type="submit" class="btn btn-success btn-lg">Editar</button>
                                 <button type="submit" class="btn btn-danger btn-lg">Cerrar</button>
                             </div>
                         </div>

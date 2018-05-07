@@ -63,6 +63,7 @@ Route::get('/crear_producto', function () {
 
 Route::post('/crearProducto','productoController@create');
 Route::post('/update_Producto','productoController@updateProducto');
+Route::post('/search_restar','productoController@restarProducto');
 
 
 //busca un producto
@@ -72,10 +73,17 @@ Route::post('/producto/search','agregarStockController@search');
 Route::post('/cliente/search','usuarioController@search');
 
 
-
+/*
 Route::get('/agregar_stock', ['as' => 'agregar_stock', 'uses' => 'agregarStockController@index']);
 
+*/
+Route::get('/agregar_stock', function () {
+    return view('PRODUCTO.agregar_stock');
+});
 
+Route::get('/inscripcion', function () {
+    return view('TORNEO/inscripcion');
+});
 
 
 Route::get('/listarproducto', ['as' => 'listarproducto', 'uses' => 'productoController@index']);
@@ -100,6 +108,7 @@ Route::get('/apertura_caja', function () {
 */
 
 Route::get('producto/destroy/{codigoProducto}', ['as' => 'producto/destroy', 'uses'=>'productoController@destroy']);
+
 
 //logear
 //login
@@ -155,6 +164,25 @@ Route::get('/mesa', function () {
     return view('MESA/mesa');
 });
 
+Route::get('/listar_mesas', function () {
+    return view('MESA/listar_mesas');
+});
+
+Route::get('/crear_torneo', function () {
+    return view('TORNEO/crear_torneo');
+});
+
+Route::get('/listar_torneo', function () {
+    return view('TORNEO/listar_torneo');
+});
+
+Route::get('/reserva_mesa', function () {
+    return view('CITAS/reserva_mesa');
+});
+
+Route::get('/editar_mesa', function () {
+    return view('MESA/editar_mesa');
+});
 
 /*
 Route::get('/agregar_stock', function () {

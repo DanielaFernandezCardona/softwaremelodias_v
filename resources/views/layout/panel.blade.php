@@ -111,19 +111,25 @@
 
 
         
-        <li>
-          <a href="#">
-            <i class="fa fa-trophy fa-lg"></i> Torneos
-          </a>
+        <li data-toggle="collapse" data-target="#torneo" class="collapsed">
+          <a href="#"><i class="fa fa-trophy fa-lg"></i> Torneos <span class="arrow"></span></a>
         </li>
+        <ul class="sub-menu collapse" id="torneo">
+          <li><a href="/crear_torneo">Crear Torneo</a></li>
+          <li><a href="/inscripcion">Inscríbete a nuestros torneos</a></li>
+          <li><a href="/listar_torneo">Listar torneos</a></li>
+
+        </ul>
 
 
-
-        <li>
-          <a href="#">
-            <i class="fa fa-calendar fa-lg"></i> Citas
-          </a>
+  <li data-toggle="collapse" data-target="#cita" class="collapsed">
+          <a href="#"><i class="fa fa-calendar fa-lg"></i> Reservas <span class="arrow"></span></a>
         </li>
+        <ul class="sub-menu collapse" id="cita">
+          <li><a href="/reserva_mesa">Reservar mesa</a></li>
+        </ul>
+
+
 
 
         <li data-toggle="collapse" data-target="#mesa" class="collapsed">
@@ -131,6 +137,7 @@
         </li>
         <ul class="sub-menu collapse" id="mesa">
           <li><a href="/mesa">Crear mesa</a></li>
+          <li><a href="/listar_mesas">Listar mesas</a></li>
         </ul>
 
 

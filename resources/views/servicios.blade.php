@@ -13,7 +13,7 @@
 </head>
 <body>
     <header>
-        <img src="welcome/images/logo_magtimus3.png" class="img-logo">
+        <img src="welcome/images/Logo.png" class="img-logo">
         <input type="checkbox" id="check">
         <label for="check" class="icon-menu"></label>
 
@@ -22,6 +22,7 @@
                 <li><a href="/">Inicio</a></li>
                 <li><a href="servicios" style="background:#df6666;color:white;">Servicios</a></li>
                 <li><a href="nosotros">Conactanos</a></li>
+                <li><a href="/registrarUsuario">Registrate</a></li>
                 <li><a href="login">Login</a></li>
             </ul>
         </nav>

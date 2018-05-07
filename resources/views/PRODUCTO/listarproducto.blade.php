@@ -33,7 +33,7 @@
       <td>{{$producto->unidades}}</td>
        <td>{{$producto->preciocompra}}</td>
       <td>{{$producto->precioventa}}</td>
-      <td><img src="./storage/313247_171303399615225_971034462_n.jpg" alt="{{$producto->nombreProducto}}" class="img-responsive" widht="300" height="300"  /></td>
+      <td><img src="{{$producto->imagen}}" alt="{{$producto->nombreProducto}}" class="img-responsive" widht="300" height="300"  /></td>
 
       <td>
        <a class="btn btn-danger btn-xs" href="{{ route('producto/destroy',['codigoProducto' =>$producto->codigoProducto] )}}" onclick="return confirm('¿Seguro desea eliminarlo?')" >Eliminar</a>

@@ -49,26 +49,17 @@ class agregarStockController extends Controller
 
         public function search(Request $request){
 
-           $searchTerm = $request->nombreProducto;
+           $searchTerm = $request->formData['nombreProducto'];
                  $articles = DB::table('productos')
                  ->select('codigoProducto','nombreProducto')
                  ->where('nombreProducto', 'LIKE', '%' . $searchTerm . '%')
-                 ->get();
+                 ->first();
       
 
 
-  //returns a view and passes the view the list of articles and the original query.
-                  //return view('PRODUCTO.agregar_stock', compact('articles', 'searchTerm')); 
-
- //return \View('/PRODUCTO/agregar_Stock')
-   //             ->with('success','Registro Exitoso');
-                  
-
-    if(count($articles)>0) 
-      return view ('PRODUCTO.agregar_stock')->withDetails($articles)->withQuery($searchTerm);
-    else
-      return view('PRODUCTO.agregar_stock')->withQuery("producto no encontrado"); 
-      
+   
+   $myJSON = (array) json_encode($articles);
+var_dump($myJSON);
 
 }
         

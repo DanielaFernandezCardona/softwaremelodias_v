@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Servicio web BILLARLANDIA</title>
+    <title>Servicio web Melodias Billares</title>
     <link rel="stylesheet" href="welcome/iconos/css/fontello.css">
     <link rel="stylesheet" href="welcome/css/menu.css">
     <link rel="stylesheet" href="welcome/css/estilos-index.css">
@@ -19,8 +19,8 @@
 </head>
 <body>
     <header>
-        <img src="welcome/images/logo_magtimus3.png" class="img-logo">
-        <label for="check" class="icon" style="color: white;">Melodias Billares'Software </label>
+        <img src="welcome/images/Logo.png" class="img-logo">
+        <label for="check" class="icon" style="color: white;">Melodías Billares'Software </label>
 
         <input type="checkbox" id="check">
         <label for="check" class="icon-menu"></label>
@@ -29,8 +29,8 @@
             <ul>
                 <li><a href="/" style="background:#df6666;color:white;">Inicio</a></li>
                 <li><a href="/productosWelcome">Productos</a></li>
-                <li><a href="nosotros">Contactanos</a></li>
-                <li><a href="/registrarUsuario">Registrate</a></li>
+                <li><a href="nosotros">Contáctanos</a></li>
+                <li><a href="/registrarUsuario">Regístrate</a></li>
                 <li><a href="login">Login</a></li>
             </ul>
         </nav>
@@ -40,7 +40,7 @@
         <div class="content-one">
             <div class="content-portada">
                 <div class="content-item1">
-                    <h2>ESTE ES MI JUEGO!.</h2>
+                    <h2>Un lugar para desestresarse y disfrutar con tus amigos!.</h2>
                 </div>
             </div>
         </div>

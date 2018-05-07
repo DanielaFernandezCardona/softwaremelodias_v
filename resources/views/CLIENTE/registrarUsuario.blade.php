@@ -29,7 +29,7 @@
 </head>
 <body>
     <header>
-        <img src="welcome/images/logo_magtimus3.png" class="img-logo">
+        <img src="welcome/images/Logo.png" class="img-logo">
         <label for="check" class="icon" style="color: white;">Melodias Billares'Software </label>
 
         <input type="checkbox" id="check">
@@ -37,9 +37,10 @@
 
         <nav class="menu">
             <ul>
-                <li><a href="/" style="background:#df6666;color:white;">Inicio</a></li>
+                <li><a href="/" >Inicio</a></li>
                 <li><a href="/productosWelcome">Productos</a></li>
-                <li><a href="nosotros">Contactanos</a></li>
+                <li><a href="nosotros">Contáctanos</a></li>
+                <li><a href="/registrarUsuario" style="background:#df6666;color:white;">Regístrate</a></li>
                 <li><a href="login">Login</a></li>
             </ul>
         </nav>
@@ -60,7 +61,7 @@
                 <form class="form-horizontal" method="post" action="/crearPersona1"  enctype="multipart/form-data" >
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
-                        <legend class="text-center header">Formulario Persona</legend>
+                        <legend class="text-center header">Regístrate en nuestra plataforma</legend>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>

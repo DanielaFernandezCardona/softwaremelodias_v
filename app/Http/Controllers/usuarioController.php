@@ -82,28 +82,36 @@ class usuarioController extends Controller
           );
 
 
- $admin=   DB::table('clientes')->where('rol','administrador')->count();
 
+if($dataclientes['rol']=='cliente'){
+          cliente::crearcliente($dataclientes);
+       
+
+         return redirect('crear_cliente')->with('success', 'Registro Exitoso Clientes');
+}else{
+
+if($dataclientes['rol']=='cliente'){
+
+return redirect('crear_cliente')->with('success', 'No se pudo registrar el cliente ');
+}
+
+}
+
+
+ $admin=   DB::table('clientes')->where('rol','administrador')->count();
 
 if($admin<2&& $dataclientes['rol']=='administrador'){
 
+ cliente::crearcliente($dataclientes);
 
-
-      $personas=DB::table('clientes')
-              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
-              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
-
-
-          cliente::crearcliente($dataclientes);
-
-       return \View('/CLIENTE/crear_cliente')
-        ->with('success','Registro Exitoso');
-
+return redirect('crear_cliente')->with('success', 'Registro Exitoso Administrador ');
   
 } else{
 
-     return \View('/CLIENTE/crear_cliente')
-        ->with('success','No se pudo registrar');
+if($dataclientes['rol']=='administrador'){
+
+return redirect('crear_cliente')->with('success', 'No se pudo registrar el administrador ');
+}
 
 }
 
@@ -116,36 +124,18 @@ if($admin<2&& $dataclientes['rol']=='administrador'){
 
 if($empleado<1 && $dataclientes['rol']=='empleado'){
 
+ cliente::crearcliente($dataclientes);
 
-      $personas=DB::table('clientes')
-              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
-              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
-
-
-          cliente::crearcliente($dataclientes);
-
-       return \View('/CLIENTE/crear_cliente')
-        ->with('success','Registro Exitoso');
+return redirect('crear_cliente')->with('success', 'Registro Exitoso empleado ');
 
 }else{
 
-     return \View('/CLIENTE/crear_cliente')
-        ->with('success','No se pudo registrar');
+if($dataclientes['rol']=='empleado'){
 
-
-
+return redirect('crear_cliente')->with('success', 'No se pudo Registrar el empleado ');
 }
 
-
-
-
-
-
-
-        //indicamos que queremos guardar un nuevo archivo en el public
-        //Storage::disk('public')->put($nombre,  \File::get($file));
-
-        //return Redirect::to('CLIENTE/crear_cliente')->with('success','Registro Exitoso');
+}
 
 
 

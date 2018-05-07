@@ -142,5 +142,57 @@ DB::table('productos')->insert(array(
  
         }
 
+
+
+
+     public static function destroy($codigoProducto)
+      {
+
+
+        $producto = producto::find($codigoProducto);
+        $producto->delete();
+
+          return redirect('/listarproducto');
+
+
+      }
+
+
+
+        public function restarProducto( Request $request)
+        {
+
+
+
+           $dataproductos= array(
+                'codigo' => $request->formData['codigo'],
+                'unidades' => $request->formData['unidadesproducto']
+                 );
+
+           //producto::producto($dataproductos);
+                    
+                   
+                       
+  $producto = producto::find($dataproductos['codigo']);
+  $unidadTotal=$producto->unidades - $dataproductos['unidades'];
+
+
+   //$producto->nombreProducto =$copia->nombreProducto;
+   //$producto->descripcion = $copia->descripcion;
+   //$producto->unidades =
+  // $producto->preciocompra = $copia->preciocompra;
+   //$producto->precioventa = $copia->precioventa;
+   //$producto->imagen = $copia->imagen;
+   //$producto->save();  
+   
+   
+ producto::where('codigoProducto',$dataproductos['codigo'])
+           ->update(['unidades'=>$unidadTotal ]);
+                       
+                     
+           var_dump( "proceso Exitoso Resta");
+ 
+        }
+
           
 }

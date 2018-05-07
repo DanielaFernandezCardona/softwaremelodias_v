@@ -10,6 +10,8 @@
 </head>
 
 <body>
+
+  
   <div class="container">
 
     <div class="row" id="pwd-container">
@@ -25,7 +27,7 @@
             {!! session('error') !!}
           </div>
           @endif
-          <img src="welcome/images/logo_magtimus3.png" class="img-responsive" width="100" height="100" alt="" />
+          <img src="welcome/images/Logo.png" class="img-responsive" width="100" height="100" alt="" />
           <input type="email" name="email" placeholder="Email" required class="form-control input-lg" value="joestudent@gmail.com" />
 
           <input type="password" class="form-control input-lg" id="password" name="password" placeholder="password" required="" />

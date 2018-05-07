@@ -11,15 +11,16 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-               @if(Session::has('success'))
-               <div class="alert alert-success" role="alert">
-                <strong>Bien!</strong> {!! session('success') !!}.
-              </div>
-                 @endif
+               @if (session('success'))
+    <div class="alert alert-success">
+        {{ session('success') }}
+    </div>
+@endif
                   <!--nada-->
 
                 <form class="form-horizontal" method="post" action="/crearPersona"  enctype="multipart/form-data" >
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
+
                     <fieldset>
                         <legend class="text-center header">Formulario Persona</legend>
 
@@ -76,6 +77,7 @@
                           <select class="form-control" id="rol" name="rol">
                             <option value="administrador">Administrador</option>
                             <option value="empleado">Empleado</option>
+                            <option value="cliente">Cliente</option>
                           </select>
                         </div>
                         </div>
