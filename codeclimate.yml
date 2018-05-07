@@ -1,0 +1,9 @@
+PHP: true
+JavaScript: false
+Python: false
+Ruby: false
+
+exclude_paths:
+- bootstrap/**
+- public/**/*
+
