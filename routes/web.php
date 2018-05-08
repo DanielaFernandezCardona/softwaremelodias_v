@@ -213,3 +213,24 @@ Route::get('/registrarUsuario', function () {
 });
 
 Route::post('/crearPersona1','usuarioController@create1');
+
+
+
+//torneo
+
+Route::get('/crear_torneo', function () {
+    return view('TORNEO/crear_torneo');
+});
+
+Route::get('/listar_torneo', function () {
+    return view('TORNEO/listar_torneo');
+});
+
+Route::get('/listar_torneo', ['as' => 'listar_torneo', 'uses' => 'torneoController@index']);
+
+
+Route::post('/crearTorneo','torneoController@create');
+
+Route::get('torneoParticipante/registrar/{idAdmin}', ['as' => 'torneoParticipante/registrar', 'uses'=>'torneoController@createParticipante']);
+
+Route::get('torneoParticipante/destroy/{idTorneo}', ['as' => 'torneoParticipante/destroy', 'uses'=>'torneoController@destroy']);

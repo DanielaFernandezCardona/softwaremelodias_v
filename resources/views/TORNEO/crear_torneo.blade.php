@@ -35,21 +35,31 @@
                  @endif
                   <!--nada-->
 
-                <form class="form-horizontal" method="post" action="/crearPersona"  enctype="multipart/form-data" >
+                <form class="form-horizontal" method="post" action="/crearTorneo"  >
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <legend class="text-center header">Crear torneo</legend>
 
-                       
+                        <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="titulo" name="titulo" type="text" placeholder="titulo" class="form-control">
+                            </div>
+                        </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="fecha" name="fecha" type="text" placeholder="Fecha" class="form-control datepicker"">
+                                <input id="fechaInicio" name="fechaInicio" type="text" placeholder="Fecha Inicio" class="form-control datepicker">
                             </div>
                         </div>
 
-                       
+                         <div class="form-group">
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon"></i></span>
+                            <div class="col-md-8">
+                                <input id="fechaFinal" name="fechaFinal" type="text" placeholder="Fecha Final" class="form-control datepicker">
+                            </div>
+                        </div>         
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>

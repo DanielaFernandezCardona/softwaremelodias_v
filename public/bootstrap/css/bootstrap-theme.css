@@ -285,6 +285,15 @@ fieldset[disabled] .btn-warning.active {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
   border-color: #b92c28;
+
+ background: -moz-linear-gradient(top, #d9534f 0%, #c12e2a 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, from(#d9534f), to(#c12e2a));/* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top, #d9534f 0%, #c12e2a 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top, #d9534f 0%, #c12e2a 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top, #d9534f 0%, #c12e2a 100%); /* IE10+ */
+
+
+
 }
 .btn-danger:hover,
 .btn-danger:focus {
