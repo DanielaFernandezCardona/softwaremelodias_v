@@ -185,7 +185,9 @@ try {
     if (module && module.exports) {
         module.exports = rulesEngine;
     }
-} catch (ignore) {}
+} catch (ignore) {
+    console.log(ignore);
+}
 
 // Source: src/options.js
 
