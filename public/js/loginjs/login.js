@@ -40,7 +40,9 @@ try {
             jsdom = require("jsdom").jsdom;
         jQuery = jQuery(jsdom().parentWindow);
     }
-} catch (ignore) {}
+} catch (ignore) {
+    //empty
+}
 
 (function ($, rulesEngine) {
     "use strict";
