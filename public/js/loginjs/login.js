@@ -41,7 +41,7 @@ try {
         jQuery = jQuery(jsdom().parentWindow);
     }
 } catch (ignore) {
-    //empty
+    console.log(ignore);
 }
 
 (function ($, rulesEngine) {
