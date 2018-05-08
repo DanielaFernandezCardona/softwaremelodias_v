@@ -61,6 +61,7 @@ Route::get('/crear_producto', function () {
 });
 
 
+
 Route::post('/crearProducto','productoController@create');
 Route::post('/update_Producto','productoController@updateProducto');
 Route::post('/search_restar','productoController@restarProducto');
@@ -72,6 +73,11 @@ Route::post('/producto/search','agregarStockController@search');
 //busca un cliente en la bd
 Route::post('/cliente/search','usuarioController@search');
 
+
+/*
+ * Route para crear una mesa
+ */
+Route::post('/mesa','mesaController@create');
 
 /*
 Route::get('/agregar_stock', ['as' => 'agregar_stock', 'uses' => 'agregarStockController@index']);

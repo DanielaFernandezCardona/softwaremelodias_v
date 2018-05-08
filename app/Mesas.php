@@ -12,7 +12,7 @@ class Mesas extends Model
 
     protected $fillable=[
 
-        'numeroMesa', 'tipoMesa', 'valor5Minutos', 'tiempoInicio', 'cantidadPersonas',
+        'codigoMesa','numeroMesa', 'tipoMesa', 'valor5Minutos', 'tiempoInicio'
     ];
 
 

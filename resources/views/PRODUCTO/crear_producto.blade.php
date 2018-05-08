@@ -47,7 +47,7 @@
 
                         <div class="form-group">
                           <!--sirve para cambiar el icono que sale enseguida -->
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-dollar bigicon"></i></span>
                             <div class="col-md-8">
                               <input id="preciocompraunidad" name="preciocompraunidad" type="text" placeholder="PrecioCompra" class="form-control">
                             </div>
@@ -55,7 +55,7 @@
 
 
                          <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-money bigicon"></i></span>
+                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-dollar bigicon"></i></span>
                             <div class="col-md-8">
                                 <input id="precioventaproducto" name="precioventaproducto" type="text" placeholder="PrecioVenta" class="form-control">
                             </div>

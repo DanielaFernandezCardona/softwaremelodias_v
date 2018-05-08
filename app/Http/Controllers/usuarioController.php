@@ -15,37 +15,37 @@ class usuarioController extends Controller
 
 
  public function index()
-        {
+ {
 
-          $personas=DB::table('clientes')
-              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
-              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
+  $personas=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
 
-          return view('/CLIENTE/listar_Personas',['personas' => $personas]);
+  return view('/CLIENTE/listar_Personas',['personas' => $personas]);
 
-        }
+}
 
 
 
-        public function index2(){
+public function index2(){
 
 
             // Obtiene el objeto del Usuario Autenticado
-            $person = Auth::user();
+  $person = Auth::user();
 
-              $persona=DB::table('clientes')
-              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
-              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
-              ->Where('clientes.users_idUsuario',"=",$person->id)
-              ->first();
+  $persona=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
+  ->Where('clientes.users_idUsuario',"=",$person->id)
+  ->first();
 
               //var_dump($persona->email);
 
 
-          return view('/CLIENTE/misdatos',['persona' => $persona]);
+  return view('/CLIENTE/misdatos',['persona' => $persona]);
 
 
-        }
+}
 
 
 
@@ -54,8 +54,8 @@ class usuarioController extends Controller
      * @param trae los datos necesarios para crear un registro de la bd.
      * @return vista del registro de usuarios
      */
-        public function create( Request $request)
-        {
+    public function create( Request $request)
+    {
 
           //obtenemos el campo file definido en el formulario
 
@@ -65,85 +65,79 @@ class usuarioController extends Controller
               * $nombre = $file->getClientOriginalName();
               * $extension = $file->getClientOriginalExtension();
               */
-
-
-          $dataclientes= array(
-              'nombres' => $request->nombre,
-              'apellidos' => $request->apellido,
-              'cedulaEntrante' => $request->cedula,
-              'direccion' => $request->direccion,
-              'telefono' => $request->telefono,
-              'rol' => $request->rol,
-              'tipoDocumento' => $request->tipoDocumento,
-              'username' => $request->username,
-              'email' => $request->email,
-              'password' => $request->password
+           $dataclientes= array(
+            'nombres' => $request->nombre,
+            'apellidos' => $request->apellido,
+            'cedulaEntrante' => $request->cedula,
+            'direccion' => $request->direccion,
+            'telefono' => $request->telefono,
+            'rol' => $request->rol,
+            'tipoDocumento' => $request->tipoDocumento,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => $request->password
               //'foto' => './storage/'.$nombre
           );
 
 
 
-if($dataclientes['rol']=='cliente'){
-          cliente::crearcliente($dataclientes);
-       
-
-         return redirect('crear_cliente')->with('success', 'Registro Exitoso Clientes');
-}else{
-
-if($dataclientes['rol']=='cliente'){
-
-return redirect('crear_cliente')->with('success', 'No se pudo registrar el cliente ');
-}
-
-}
+           if($dataclientes['rol']=='cliente'){
+            cliente::crearcliente($dataclientes);
 
 
- $admin=   DB::table('clientes')->where('rol','administrador')->count();
+            return redirect('crear_cliente')->with('success', 'Registro Exitoso Clientes');
+          }else{
 
-if($admin<2&& $dataclientes['rol']=='administrador'){
+            if($dataclientes['rol']=='cliente'){
 
- cliente::crearcliente($dataclientes);
+              return redirect('crear_cliente')->with('success', 'No se pudo registrar el cliente ');
+            }
 
-return redirect('crear_cliente')->with('success', 'Registro Exitoso Administrador ');
-  
-} else{
-
-if($dataclientes['rol']=='administrador'){
-
-return redirect('crear_cliente')->with('success', 'No se pudo registrar el administrador ');
-}
-
-}
+          }
 
 
+          $admin=   DB::table('clientes')->where('rol','administrador')->count();
+
+          if($admin<2&& $dataclientes['rol']=='administrador'){
+
+           cliente::crearcliente($dataclientes);
+
+           return redirect('crear_cliente')->with('success', 'Registro Exitoso Administrador ');
+
+         } else{
+
+          if($dataclientes['rol']=='administrador'){
+
+            return redirect('crear_cliente')->with('success', 'No se pueden registrar más de 2 administadores ');
+          }
+
+        }
+
+        $empleado=DB::table('clientes')->where('rol','empleado')->count();
 
 
- $empleado=DB::table('clientes')->where('rol','empleado')->count();
+        if($empleado<1 && $dataclientes['rol']=='empleado'){
 
+         cliente::crearcliente($dataclientes);
 
+         return redirect('crear_cliente')->with('success', 'Registro Exitoso empleado ');
 
-if($empleado<1 && $dataclientes['rol']=='empleado'){
+       }else{
 
- cliente::crearcliente($dataclientes);
+        if($dataclientes['rol']=='empleado'){
 
-return redirect('crear_cliente')->with('success', 'Registro Exitoso empleado ');
-
-}else{
-
-if($dataclientes['rol']=='empleado'){
-
-return redirect('crear_cliente')->with('success', 'No se pudo Registrar el empleado ');
-}
-
-}
-
-
+          return redirect('crear_cliente')->with('success', 'No se puede regitrar más de un empleado ');
+        }
 
       }
 
 
- public function create1( Request $request)
-        {
+
+    }
+
+
+    public function create1( Request $request)
+    {
 
           //obtenemos el campo file definido en el formulario
 
@@ -155,21 +149,21 @@ return redirect('crear_cliente')->with('success', 'No se pudo Registrar el emple
               */
 
 
-          $dataclientes= array(
-              'nombres' => $request->nombre,
-              'apellidos' => $request->apellido,
-              'cedulaEntrante' => $request->cedula,
-              'direccion' => $request->direccion,
-              'telefono' => $request->telefono,
-              'rol' => "cliente",
-              'tipoDocumento' => $request->tipoDocumento,
-              'username' => $request->username,
-              'email' => $request->email,
-              'password' => $request->password
+           $dataclientes= array(
+            'nombres' => $request->nombre,
+            'apellidos' => $request->apellido,
+            'cedulaEntrante' => $request->cedula,
+            'direccion' => $request->direccion,
+            'telefono' => $request->telefono,
+            'rol' => "cliente",
+            'tipoDocumento' => $request->tipoDocumento,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => $request->password
               //'foto' => './storage/'.$nombre
           );
 
-          cliente::crearcliente($dataclientes);
+           cliente::crearcliente($dataclientes);
 
 
         //indicamos que queremos guardar un nuevo archivo en el public
@@ -177,71 +171,71 @@ return redirect('crear_cliente')->with('success', 'No se pudo Registrar el emple
 
         //return Redirect::to('CLIENTE/crear_cliente')->with('success','Registro Exitoso');
 
-       return \View('login')
-        ->with('success','Registro Exitoso');
+           return \View('login')
+           ->with('success','Registro Exitoso');
 
 
-      }
-
-
-
+         }
 
 
 
 
-      public function destroy($idCedula){
+
+
+
+         public function destroy($idCedula){
           cliente::destroycliente($idCedula);
           return redirect('/listar_Personas');
-      }
+        }
 
 
-   public function updateCliente(Request $request){
+        public function updateCliente(Request $request){
 
-     cliente::updateCliente($request);
+         cliente::updateCliente($request);
 
-$persona=DB::table('clientes')
-              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
-              ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
-              ->Where('clientes.users_idUsuario',"=",$request->id)
-              ->first();
+         $persona=DB::table('clientes')
+         ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+         ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
+         ->Where('clientes.users_idUsuario',"=",$request->id)
+         ->first();
 
 
       //return redirect('/mis_datos');
 
-return redirect()->route('CLIENTE.misdatos',['persona' => $persona])
-       ->with('success','modificados');
+         return redirect()->route('CLIENTE.misdatos',['persona' => $persona])
+         ->with('success','modificados');
 
 // return \View('/CLIENTE/misdatos')
 //        ->withSuccess('Datos modificados correctamente')
   //      ->with();
 
-   }
+       }
 
 
 
-        public function search(Request $request){
+       public function search(Request $request){
 
-           $searchTerm = $request->nombreCliente;
-
-
-            $persona=DB::table('clientes')
-              ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
-              ->select('clientes.nombreCompleto','users.id')
-              ->Where('clientes.nombreCompleto','LIKE', '%' . $searchTerm . '%')
-              ->first();
-
-          if(!empty($persona)){
-               $p['nombreCompleto']=$persona->nombreCompleto;
-              return view('/VENTA/venta',['persona' => $p]);
-
-          }
-            else{
-               $persona['nombreCompleto']="Cliente no encontrado";
-              return view('/VENTA/venta',['persona' => $persona]);
-
-            }
+         $searchTerm = $request->nombreCliente;
 
 
-}
+         $persona=DB::table('clientes')
+         ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+         ->select('clientes.nombreCompleto','users.id')
+         ->Where('clientes.nombreCompleto','LIKE', '%' . $searchTerm . '%')
+         ->first();
 
-}
+         if(!empty($persona)){
+           $p['nombreCompleto']=$persona->nombreCompleto;
+           return view('/VENTA/venta',['persona' => $p]);
+
+         }
+         else{
+           $persona['nombreCompleto']="Cliente no encontrado";
+           return view('/VENTA/venta',['persona' => $persona]);
+
+         }
+
+
+       }
+
+     }

@@ -17,16 +17,19 @@ protected $primaryKey='codigoMesa';
  
     public static function crearMesa($data)
    {
+    
 
      DB::table('mesas')->insert(array(
        'numeroMesa' => $data['numeroMesa'],
        'tipoMesa' => $data['tipoMesa'],
-       'valor5Minutos' => $data['valor5Minutos']
+       'valor5Minutos' => $data['valor5Minutos'],
+       'tiempoInicio' => $data['tiempoInicio']
      ));   
+
+     
    }
 
-
-
+ 
 
      public static function destroyMesas($idcedula)
       {

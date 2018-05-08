@@ -236,6 +236,14 @@ fieldset[disabled] .btn-info.active {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
   border-color: #e38d13;
+
+
+ background: -moz-linear-gradient(top, #f0ad4e 0%, #eb9316 100%); /* FF3.6+ */
+ background: -webkit-gradient(top, #f0ad4e 0%, #eb9316 100%); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top, #f0ad4e 0%, #eb9316 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top, #f0ad4e 0%, #eb9316 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top, #f0ad4e 0%, #eb9316 100%); /* IE10+ */
+
 }
 .btn-warning:hover,
 .btn-warning:focus {
