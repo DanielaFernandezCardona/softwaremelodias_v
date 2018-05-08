@@ -61,7 +61,7 @@ class productoController extends Controller
        
             //obtenemos el nombre del archivo
        $nombre = $file->getClientOriginalName();
-       $extension = $file->getClientOriginalExtension();
+       //$extension = $file->getClientOriginalExtension();
        
        $dataproductos= array(
         'nombreProducto' => $request->nombreProducto,
