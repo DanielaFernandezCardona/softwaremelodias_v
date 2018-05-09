@@ -804,6 +804,13 @@ background: -moz-linear-gradient(top, #f5f5f5 0%, #e8e8e8 100%); /* FF3.6+ */
   background-image:         linear-gradient(to bottom, #f2dede 0%, #ebcccc 100%);
   filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#fff2dede', endColorstr='#ffebcccc', GradientType=0);
   background-repeat: repeat-x;
+
+
+   background: -moz-linear-gradient(top, #f2dede 0%, #ebcccc 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, from(#f2dede), to(#ebcccc)); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top, #f2dede 0%, #ebcccc 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top, #f2dede 0%, #ebcccc 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top, #f2dede 0%, #ebcccc 100%); /* IE10+ */
 }
 .well {
   background-image: -webkit-linear-gradient(top, #e8e8e8 0%, #f5f5f5 100%);

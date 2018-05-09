@@ -59,4 +59,11 @@
   color: #fff !important;
   text-shadow: 0 -1px 0 rgba(31, 31, 31, 0.29);
   -webkit-font-smoothing: antialiased;
+
+
+   background: -moz-linear-gradient(top, #127bde 0%, #072d50 100%); /* FF3.6+ */
+ background: -webkit-gradient(top, #127bde 0%, #072d50 100%); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(top, #127bde 0%, #072d50 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top, #127bde 0%, #072d50 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top, #127bde 0%, #072d50 100%); /* IE10+ */
 }
