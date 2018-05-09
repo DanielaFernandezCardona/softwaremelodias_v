@@ -50,16 +50,11 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="fechaInicio" name="fechaInicio" type="text" placeholder="Fecha Inicio" class="form-control datepicker">
+                                <input id="fecha" name="fecha" type="text" placeholder="Fecha" class="form-control datepicker">
                             </div>
                         </div>
 
-                         <div class="form-group">
-                            <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon"></i></span>
-                            <div class="col-md-8">
-                                <input id="fechaFinal" name="fechaFinal" type="text" placeholder="Fecha Final" class="form-control datepicker">
-                            </div>
-                        </div>         
+                               
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-user bigicon"></i></span>
@@ -100,7 +95,7 @@
 <script >
     $('.datepicker').datepicker({
 
-        format: "dd/mm/yyyy",
+        format: "yyyy-mm-dd",
         languaje:"es",
         autoclose: true
     });

@@ -3,6 +3,8 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use DB;
+use DateTime;
 
 class Torneo extends Model
 {
@@ -40,13 +42,15 @@ class Torneo extends Model
     */
    public static function creartorneo($data)
    {
+  
+   //$date = new \DateTime($data['fechaInicio']);
 
+$date = new DateTime($data['fechaInicio']);
    
-      DB::table('users')->insert(array(
+      DB::table('torneos')->insert(array(
        'titulo' => $data['titulo'],
        'cantidadJugadores' => $data['cantidadJugadores'],
-       'fechaInicio' => $data['fechaInicio'],       
-       'fechaFin' => $data['fechaFin'],
+       'fechaInicio' => $date->format('Y-m-d'),       
        'descripcion' => $data['descripcion'],
        'premio' => $data['premio']
       ));  
@@ -54,6 +58,13 @@ class Torneo extends Model
       
 
  }
+
+ public static function destroyTorneo($idcedula)
+      {
+        $cliente = torneos::find($idcedula);
+        $cliente->delete();
+
+      }
 
 
 

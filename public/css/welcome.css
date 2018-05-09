@@ -63,11 +63,6 @@
 .flex-item {
 }
 /*text*/
-.text-white,.text-white-hover:hover{
-	color: #fff !important;
-}
+.text-white,.text-white-hover:hover{color:#fff!important}
 /*fontcolor*/
-.light-grey {
-	color: #000 !important;
-	background-color: #E6E9ED !important;
-}
+.light-grey {color:#000!important;background-color:#E6E9ED!important}

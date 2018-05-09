@@ -8,6 +8,8 @@ class Torneos extends Model
 {
 
     protected $table = 'torneos';
+    protected $primaryKey='idtorneo';
+
 
 
     protected $fillable=[
