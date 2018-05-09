@@ -72,6 +72,14 @@ fieldset[disabled] .btn-danger {
   background-repeat: repeat-x;
   border-color: #dbdbdb;
   border-color: #ccc;
+
+ background: -moz-linear-gradient(top, #fff 0%, #e0e0e0 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, from(#fff), to(#e0e0e0)); /* Chrome,Safari4+ */
+ background: -webkit-linear-gradient(...); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top, #fff 0%, #e0e0e0 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top, #fff 0%, #e0e0e0 100%); /* IE10+ */
+
+
 }
 .btn-default:hover,
 .btn-default:focus {
@@ -154,6 +162,13 @@ fieldset[disabled] .btn-primary.active {
   filter: progid:DXImageTransform.Microsoft.gradient(enabled = false);
   background-repeat: repeat-x;
   border-color: #3e8f3e;
+
+background: -moz-linear-gradient(top, #5cb85c 0%, #419641 100%); /* FF3.6+ */
+ background: -webkit-gradient(linear, left top, left bottom, from(#5cb85c), to(#419641));
+ background: -webkit-linear-gradient(top, #5cb85c 0%, #419641 100%); /* Chrome10+,Safari5.1+ */
+ background: -o-linear-gradient(top, #5cb85c 0%, #419641 100%); /* Opera 11.10+ */
+ background: -ms-linear-gradient(top, #5cb85c 0%, #419641 100%); /* IE10+ */
+
 }
 .btn-success:hover,
 .btn-success:focus {
@@ -291,7 +306,6 @@ fieldset[disabled] .btn-warning.active {
  background: -webkit-linear-gradient(top, #d9534f 0%, #c12e2a 100%); /* Chrome10+,Safari5.1+ */
  background: -o-linear-gradient(top, #d9534f 0%, #c12e2a 100%); /* Opera 11.10+ */
  background: -ms-linear-gradient(top, #d9534f 0%, #c12e2a 100%); /* IE10+ */
-
 
 
 }
