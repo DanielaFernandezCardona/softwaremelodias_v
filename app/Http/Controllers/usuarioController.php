@@ -85,7 +85,7 @@ public function index2(){
             cliente::crearcliente($dataclientes);
 
 
-            return redirect('crear_cliente')->with('success', 'Registro Exitoso Clientes');
+            return redirect('crear_cliente')->with('success', 'Cliente registrado con éxito');
           }else{
 
             if($dataclientes['rol']=='cliente'){
@@ -102,13 +102,13 @@ public function index2(){
 
            cliente::crearcliente($dataclientes);
 
-           return redirect('crear_cliente')->with('success', 'Registro Exitoso Administrador ');
+           return redirect('crear_cliente')->with('success', 'Administrador registrado con éxito');
 
          } else{
 
           if($dataclientes['rol']=='administrador'){
 
-            return redirect('crear_cliente')->with('success', 'No se pueden registrar más de 2 administadores ');
+            return redirect('crear_cliente')->with('success', 'No se puede registrar más de 2 administradores ');
           }
 
         }
@@ -120,13 +120,13 @@ public function index2(){
 
          cliente::crearcliente($dataclientes);
 
-         return redirect('crear_cliente')->with('success', 'Registro Exitoso empleado ');
+         return redirect('crear_cliente')->with('success', 'Empleado registrado con éxito');
 
        }else{
 
         if($dataclientes['rol']=='empleado'){
 
-          return redirect('crear_cliente')->with('success', 'No se puede regitrar más de un empleado ');
+          return redirect('crear_cliente')->with('success', 'No se puede registrar más de un empleado ');
         }
 
       }

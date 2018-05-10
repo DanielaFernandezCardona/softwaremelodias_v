@@ -23,7 +23,7 @@ class usuariosSeeder extends Seeder
       ));
 */
 		  $faker = Faker::create();
-			for ($i=2006; $i < 2009; $i++) {
+			for ($i=20; $i < 27; $i++) {
 			    \DB::table('users')->insert(array(
 			           'id' => $i,
 			           'username'  => $faker->userName,
@@ -37,7 +37,7 @@ class usuariosSeeder extends Seeder
          'nombreCompleto'  => $faker->name,
          'direccion' => $faker->address,
          'telefono' => $faker->phoneNumber,
-         'rol' => $faker->randomElement(['cliente','empleado']),
+         'rol' => $faker->randomElement(['cliente']),
          'tipoDocumento' => $faker->randomElement(['cedula','cedulaExtranjería','tarjetaIdentidad']),
          'users_idUsuario' => $i
     ));
