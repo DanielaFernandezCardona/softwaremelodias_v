@@ -39,7 +39,7 @@ return [
             'prefix' => '',
         ],
 
-/*
+
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', 'us-cdbr-iron-east-04.cleardb.net'),
@@ -54,8 +54,8 @@ return [
             'strict' => true,
             'engine' => null,
         ],
-        */
-
+        
+       /*
         'mysql' => [
             'driver' => 'mysql',
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -70,6 +70,7 @@ return [
             'strict' => true,
             'engine' => null,
         ],
+        */
 
         'pgsql' => [
             'driver' => 'pgsql',

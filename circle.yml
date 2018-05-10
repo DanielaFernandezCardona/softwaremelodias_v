@@ -4,7 +4,7 @@ machine:
 
   environment:
     APP_ENV: testing
-    APP_KEY: base64:kaLfQGqEEb5Wf0yYw0Yqhk0UaGnL6VXgSD9nCc9lzMs=
+    APP_KEY: base64:WqG0xVVZVzAOILIcIfOKoTOlASz01OLzO2JNHbwDEc4=
 
 general:
   artifacts:
@@ -28,4 +28,4 @@ deployment:
   staging:
     branch: master
     heroku:
-      appname: softwaremelodias
+      appname: softwarebillares

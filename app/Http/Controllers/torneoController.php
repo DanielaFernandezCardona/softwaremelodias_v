@@ -7,6 +7,7 @@ use App\Torneos;
 use App\torneo;
 use Redirect;
 use DB;
+use Auth;
 
 
 class TorneoController extends Controller
@@ -55,8 +56,16 @@ public function index()
       }
 
 
-      public function createParticipante($codigoPersona){
-        echo $codigoPersona;
+      public function createParticipante($codigotorneo){
+        
+         $person = Auth::user();
+
+        $torneobd=torneos::find($codigotorneo);
+        $torneobd ->idUser = $person->id;
+       $torneobd->save();
+          return redirect('listar_torneo');
+  
+
 
       }
 
