@@ -28,7 +28,7 @@
         <nav class="menu">
             <ul>
                 <li><a href="/" style="background:#df6666;color:white;">Inicio</a></li>
-                <li><a href="/productosWelcome">Productos</a></li>
+                <li><a href="/productosWelcome">peticion</a></li>
                 <li><a href="nosotros">Contáctanos</a></li>
                 <li><a href="/registrarUsuario">Regístrate</a></li>
                 <li><a href="login">Login</a></li>
