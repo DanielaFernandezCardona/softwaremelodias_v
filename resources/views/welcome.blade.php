@@ -40,7 +40,7 @@
         <div class="content-one">
             <div class="content-portada">
                 <div class="content-item1">
-                    <h2>Un lugar para desestresarse y disfrutar con tus amigos!.</h2>
+                    <h2>Un lugar para!.</h2>
                 </div>
             </div>
         </div>
