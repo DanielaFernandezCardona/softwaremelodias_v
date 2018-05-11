@@ -40,7 +40,7 @@
         <div class="content-one">
             <div class="content-portada">
                 <div class="content-item1">
-                    <h2>Un lugar!.</h2>
+                    <h2>JAJ!.</h2>
                 </div>
             </div>
         </div>
