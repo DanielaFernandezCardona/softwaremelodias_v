@@ -159,7 +159,7 @@ return view('/CLIENTE/misdatos',['persona' => $persona]);
     {
 
      
-           $dataclientes= array(
+           $data= array(
             'nombres' => $request->nombre,
             'apellidos' => $request->apellido,
             'cedulaEntrante' => $request->cedula,
@@ -173,7 +173,39 @@ return view('/CLIENTE/misdatos',['persona' => $persona]);
               //'foto' => './storage/'.$nombre
           );
 
-           cliente::crearCliente($dataclientes);
+           //cliente::crearCliente($dataclientes);
+
+     
+      DB::table('users')->insert(array(
+       'id' => intval($data['cedulaEntrante']),
+       'username' => $data['username'],
+       'email' => $data['email'],
+       'password' => \Hash::make ($data['password'])
+
+      ));
+
+
+
+
+
+      //$usuario = DB::table('users')->select('idUsuario')->where('email', '=', $data['email'])->get();
+      //$id = DB:: select idUsuario from users where(users.email = email);
+
+      $nombreCompleto=$data['nombres']." ".$data['apellidos'];
+
+     DB::table('clientes')->insert(array(
+       'nombreCompleto' => $nombreCompleto,
+       'cedula' => intval($data['cedulaEntrante']),
+       'direccion' => $data['direccion'],
+       'telefono' => $data['telefono'],
+       'rol' => $data['rol'],
+       'tipoDocumento' => $data['tipoDocumento'],
+       'users_idUsuario' => intval($data['cedulaEntrante'])
+
+     ));
+
+
+
 
            return \View('login')
            ->with('success','Registro Exitoso');
