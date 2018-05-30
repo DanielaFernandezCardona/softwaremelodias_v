@@ -89,7 +89,7 @@ $person = Auth::user();
         'unidades' => $request->unidades,
         'preciocompraunidad' => $request->preciocompraunidad,
         'precioventaunidad' => $request->precioventaproducto,
-        'foto' => '/storage/'.$nombre
+        'foto' => '/welcome/images/'.$nombre
       );
        
            //producto::crearProductos($dataproductos);

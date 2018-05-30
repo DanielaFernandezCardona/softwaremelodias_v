@@ -356,7 +356,6 @@ Route::get('/listar_Personas', ['as' => 'listar_Personas', 'uses' => 'usuarioCon
 
 Route::get('persona/destroy/{cedula}', ['as' => 'persona/destroy', 'uses'=>'usuarioController@destroy']);
 
-Route::get('/productosWelcome', ['as' => 'listarproducto', 'uses' => 'productoController@index3']);
 
 
 
@@ -392,6 +391,7 @@ Route::get('/registrarUsuario', function () {
 
 Route::post('/crearPersona1','usuarioController@create1');
 
+Route::get('/productosWelcome', ['as' => 'listarproducto', 'uses' => 'productoController@index3']);
 
 
 
