@@ -207,7 +207,7 @@ return view('/CLIENTE/misdatos',['persona' => $persona]);
 
 
 
-           return \View('login')
+           return \View('listarproducto')
            ->with('success','Registro Exitoso');
 
 
