@@ -37,18 +37,14 @@
     </header>
 
     <main>
-        <div class="content-one">
-            <div class="content-portada">
-                <div class="content-item1">
-                    <h2>JAJ!.</h2>
-                </div>
-            </div>
-        </div>
-    <div class="embed-responsive embed-responsive-16by9">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/bDQDMK9Yo0M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
- 
-</div>
         
+        <div class="container">
+    <div class="embed-responsive embed-responsive-16by9">
+        <br>
+        <br>
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/bDQDMK9Yo0M" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+</div>
+</div>        
     </main>
     <footer>
         <a title="Twitter" href="https://twitter.com/?lang=es"><label class="icon-twitter" /></a>

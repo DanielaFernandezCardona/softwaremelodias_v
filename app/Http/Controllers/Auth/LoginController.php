@@ -31,7 +31,7 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/crear_cliente';
+    protected $redirectTo = '/BienvenidosPanel';
 
     /**
      * Create a new controller instance.
@@ -55,7 +55,7 @@ class LoginController extends Controller
             if (Auth::check())
                 {
                     // Si está autenticado lo mandamos a la raíz donde estara el mensaje de bienvenida.
-                    return Redirect::to('/crear_cliente');
+                    return Redirect::to('/BienvenidosPanel');
                 }
                 return View::make('/login');
      
@@ -78,7 +78,7 @@ class LoginController extends Controller
 
         if(Auth::attempt(['email'=>$email,'password'=>$password],$remember))
             {
-                return redirect()->intended('/crear_cliente');
+                return redirect()->intended('/BienvenidosPanel');
             }else{
                 return Redirect::back()->with('error','datos Invalidos')->withInput();
 

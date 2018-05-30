@@ -12,7 +12,7 @@ class mesa extends Model
     
 protected $table = 'mesas';
 protected $primaryKey='codigoMesa';
-
+public $timestamps = false;
 
  
     public static function crearMesa($data)
@@ -29,9 +29,17 @@ protected $primaryKey='codigoMesa';
      
    }
 
+
+
+   public static function editMesa($codigoMesa){
+    $mesa = mesa::find($codigoMesa);
+     return $mesa;
+
+   }
+
  
 
-     public static function destroyMesas($idcedula)
+     public static function destroyMesas($codigoMesa)
       {
         $mesa = mesa::find($codigoMesa);
         $mesa->delete();

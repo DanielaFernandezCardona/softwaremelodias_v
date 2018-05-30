@@ -28,7 +28,7 @@
           </div>
           @endif
           <img src="welcome/images/Logo.png" class="img-responsive" width="100" height="100" alt="" />
-          <input type="email" name="email" placeholder="Email" required class="form-control input-lg" value="joestudent@gmail.com" />
+          <input type="email" name="email" placeholder="Email" required class="form-control input-lg"  />
 
           <input type="password" class="form-control input-lg" id="password" name="password" placeholder="password" required="" />
 
@@ -40,7 +40,7 @@
            </div>
            <button type="submit" name="go" class="btn btn-lg btn-primary btn-block">Entrar</button>
           <div>
-            <a href="#">Crear una cuenta</a> or <a href="#">Cambiar password</a>
+            <a href="/registrarUsuario">Crear una cuenta</a> 
           </div>
 
         </form>

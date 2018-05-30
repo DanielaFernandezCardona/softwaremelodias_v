@@ -56,14 +56,14 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-dollar bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="valor5Minutos" name="valor5Minutos" type="text" placeholder=" Costo 5 Minutos de Mesa" class="form-control">
+                                <input id="valor5Minutos" name="valor5Minutos" type="text" placeholder=" Costo 5 Minutos de Mesa" class="form-control" required>
                             </div>
                         </div>
 
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2  text-center"><i class="fa fa-tachometer bigicon "></i></span>
                             <div class="col-md-8">
-                                <input id="tiempoInicio" name="tiempoInicio" type="time" class="form-control">
+                                <input id="tiempoInicio" name="tiempoInicio" type="datetime-local" class="form-control" required>
                             </div>
                         </div>  
 
@@ -74,7 +74,7 @@
                                 <button type="submit" class="btn btn-danger btn-lg">Cerrar</button>
                             </div>
                         </div>
-
+                        
                     </fieldset>
                 </form>
             </div>

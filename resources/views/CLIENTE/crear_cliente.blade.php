@@ -92,14 +92,14 @@
                          <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email" class="form-control">
+                                <input id="email" name="email" type="text" placeholder="Email" class="form-control" >
                             </div>
                         </div>                     
 
                        <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-unlock-alt bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="password" name="password" type="password" placeholder="Contraseña" class="form-control">
+                                <input id="password" name="password" type="password" placeholder="Contraseña" class="form-control" >
                             </div>
                         </div>
 

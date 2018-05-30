@@ -30,12 +30,12 @@
             <div class="well well-sm">
                @if(Session::has('success'))
                <div class="alert alert-success" role="alert">
-                <strong>Bien!</strong> {!! session('success') !!}.
+                 {!! session('success') !!}.
               </div>
                  @endif
                   <!--nada-->
 
-                <form class="form-horizontal" method="post" action="/crearPersona"  enctype="multipart/form-data" >
+                <form class="form-horizontal" method="post" action="/reservarmesa"  enctype="multipart/form-data" >
                   <input type="hidden" name="_token" value="{{ csrf_token() }}">
                     <fieldset>
                         <legend class="text-center header">Reserva tu mesa</legend>
@@ -45,7 +45,7 @@
                         <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-calendar bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="fecha" name="fecha" type="text" placeholder="Fecha" class="form-control datepicker"">
+                                <input id="fecha" name="fecha" type="text" placeholder="Fecha" class="form-control datepicker">
                             </div>
                         </div>
 
@@ -75,14 +75,14 @@
                     <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-clock-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="horaInicio" name="horaInicio" type="text" placeholder="Hora inicio" class="form-control">
+                                <input id="horaInicio" name="horaInicio" type="time" placeholder="Hora inicio" class="form-control">
                             </div>
                         </div>
 
                      <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-clock-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="horaFin" name="horaFin" type="text" placeholder="Hora fin" class="form-control">
+                                <input id="horaFin" name="horaFin" type="time" placeholder="Hora fin" class="form-control">
                             </div>
                         </div>
 

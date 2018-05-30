@@ -13,6 +13,14 @@ public function index()
 
           return view('/VENTA/venta',['persona' => $persona]);
         
+   return Redirect::to('prestamo')
+             ->with('success',$libro->idLibro)
+             ->with('usuario',$idUser);
+  
+        
+
+
+
         }
  
 

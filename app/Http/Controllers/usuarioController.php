@@ -21,7 +21,26 @@ class usuarioController extends Controller
   ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
   ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','users.username','users.email', 'users.password')->get();
 
+
+$person = Auth::user();
+
+  $persona=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.rol')
+  ->Where('clientes.users_idUsuario',"=",$person->id)
+  ->first();
+
+    if($persona->rol=='administrador')
   return view('/CLIENTE/listar_Personas',['personas' => $personas]);
+  
+    if($persona->rol=='empleado')
+     return view('bienvenido'); 
+   
+   if($persona->rol=='cliente')
+    return view('bienvenido'); 
+
+
+
 
 }
 
@@ -36,13 +55,19 @@ public function index2(){
   $persona=DB::table('clientes')
   ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
   ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
-  ->Where('clientes.users_idUsuario',"=",$person->id)
+  ->Where('clientes.cedula',"=",$person->id)
   ->first();
 
-              //var_dump($persona->email);
+           
 
+ if($persona->rol=='administrador'||$persona->rol=='empleado'){
+return view('/CLIENTE/misdatos',['persona' => $persona]);
+ }else{
+  return view('/CLIENTE/misdatosCliente',['persona' => $persona]);
 
-  return view('/CLIENTE/misdatos',['persona' => $persona]);
+ }
+
+  
 
 
 }
@@ -57,14 +82,7 @@ public function index2(){
     public function create( Request $request)
     {
 
-          //obtenemos el campo file definido en el formulario
-
-          // $file = $request->file('foto');
-
-           /**obtenemos el nombre del archivo
-              * $nombre = $file->getClientOriginalName();
-              * $extension = $file->getClientOriginalExtension();
-              */
+         
            $dataclientes= array(
             'nombres' => $request->nombre,
             'apellidos' => $request->apellido,
@@ -139,16 +157,7 @@ public function index2(){
     public function create1( Request $request)
     {
 
-          //obtenemos el campo file definido en el formulario
-
-          // $file = $request->file('foto');
-
-           /**obtenemos el nombre del archivo
-              * $nombre = $file->getClientOriginalName();
-              * $extension = $file->getClientOriginalExtension();
-              */
-
-
+     
            $dataclientes= array(
             'nombres' => $request->nombre,
             'apellidos' => $request->apellido,
@@ -165,11 +174,6 @@ public function index2(){
 
            cliente::crearcliente($dataclientes);
 
-
-        //indicamos que queremos guardar un nuevo archivo en el public
-        //Storage::disk('public')->put($nombre,  \File::get($file));
-
-        //return Redirect::to('CLIENTE/crear_cliente')->with('success','Registro Exitoso');
 
            return \View('login')
            ->with('success','Registro Exitoso');
@@ -196,18 +200,14 @@ public function index2(){
          $persona=DB::table('clientes')
          ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
          ->select('clientes.nombreCompleto','clientes.cedula','clientes.direccion','clientes.telefono', 'clientes.rol', 'clientes.tipoDocumento','clientes.cedula','users.username','users.email', 'users.password','users.id')
-         ->Where('clientes.users_idUsuario',"=",$request->id)
+         ->Where('clientes.cedula',"=",$request->id)
          ->first();
 
 
-      //return redirect('/mis_datos');
 
-         return redirect()->route('CLIENTE.misdatos',['persona' => $persona])
+         return redirect()->route('datos',['persona' => $persona])
          ->with('success','modificados');
-
-// return \View('/CLIENTE/misdatos')
-//        ->withSuccess('Datos modificados correctamente')
-  //      ->with();
+           
 
        }
 
@@ -215,27 +215,25 @@ public function index2(){
 
        public function search(Request $request){
 
-         $searchTerm = $request->nombreCliente;
-
-
+     
+          $searchTerm= $request->nombreCliente;
+                        
          $persona=DB::table('clientes')
-         ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
-         ->select('clientes.nombreCompleto','users.id')
-         ->Where('clientes.nombreCompleto','LIKE', '%' . $searchTerm . '%')
+         ->select('nombreCompleto','cedula','rol')
+         ->Where('clientes.nombreCompleto','LIKE', '%'.$searchTerm.'%')
          ->first();
-
-         if(!empty($persona)){
-           $p['nombreCompleto']=$persona->nombreCompleto;
-           return view('/VENTA/venta',['persona' => $p]);
-
+           
+                   
+         if(!empty($persona)&&$persona->rol=='cliente'){
+           $array = json_decode(json_encode($persona), True);
+            var_dump($array);
          }
          else{
-           $persona['nombreCompleto']="Cliente no encontrado";
-           return view('/VENTA/venta',['persona' => $persona]);
-
+                echo "no se encontro la persona";
          }
+         
 
 
-       }
+       }//salir
 
      }

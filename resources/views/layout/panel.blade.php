@@ -127,6 +127,8 @@
         </li>
         <ul class="sub-menu collapse" id="cita">
           <li><a href="/reserva_mesa">Reservar mesa</a></li>
+          <li><a href="/listar_reservas">Listar reservas</a></li>
+          
         </ul>
 
 
@@ -139,6 +141,14 @@
           <li><a href="/mesa">Crear mesa</a></li>
           <li><a href="/listar_mesas">Listar mesas</a></li>
         </ul>
+
+        <li data-toggle="collapse" data-target="#salir" class="collapsed">
+          <a href="/salir"><i class="fa fa-barsfa-lg"></i>Cerrar Sesión <span class="arrow"></span></a>
+        </li>
+        
+
+
+
 
 
       </ul>

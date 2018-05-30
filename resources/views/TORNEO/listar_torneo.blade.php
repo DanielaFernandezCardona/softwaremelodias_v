@@ -4,6 +4,12 @@
 
 @Section('contenido')
 <div class="container" style="width:400px; "> 
+
+  @if(Session::has('success'))
+               <div class="alert alert-success" role="alert">
+                <strong>{!! session('success') !!}. </strong>
+              </div>
+                 @endif
     <div class="row">
       <div  style="width:800px; " >
         <h1 class="page-header" style="color:BLACK;text-align: center;">LISTADO DE TORNEOS</h1>
@@ -35,7 +41,7 @@
       <td>{{$torneo->cantidadJugadores}}</td>
       <td>{{$torneo->premio}}</td>
       <td>
-       <a class="btn btn-success btn-xs" href="{{ route('torneoParticipante/registrar',[idTorneo' => idTorneo] )}}" onclick="return confirm('¿Seguro desea registrarse?')" >Registrar</a>
+       <a class="btn btn-success btn-xs" href="{{ route('torneoParticipante/registrar',['idTorneo' =>$torneo->idTorneo] )}}" onclick="return confirm('¿Seguro desea registrarse?')" >Registrar</a>
      </td>   
       <td>
        <a class="btn btn-danger btn-xs" href="{{ route('torneoParticipante/destroy',['idTorneo' =>$torneo->idTorneo] )}}" onclick="return confirm('¿Seguro desea eliminarlo?')" >Eliminar</a>

@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use App\producto;
 use Redirect;
 use DB;
-
+use Auth;
 
 class productoController extends Controller
 {
@@ -18,7 +18,26 @@ class productoController extends Controller
    ->select('codigoProducto','nombreProducto','descripcion','unidades','preciocompra', 'precioventa', 'imagen')
    ->get();
 
+
+$person = Auth::user();
+
+  $persona=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.rol')
+  ->Where('clientes.cedula',"=",$person->id)
+  ->first();
+
+
+    if($persona->rol=='administrador')
+  return view('/PRODUCTO/listarproducto',['productos' => $productos]);
+
+    if($persona->rol=='empleado')
    return view('/PRODUCTO/listarproducto',['productos' => $productos]);
+
+   if($persona->rol=='cliente')
+    return view('bienvenido');
+
+
 
  }
 
@@ -92,9 +111,11 @@ class productoController extends Controller
 
   //    return Redirect::to('CLIENTE/crear_cliente')->with('success','Registro Exitoso');
 
-       return \View('/PRODUCTO/crear_producto')
-       ->with('success','Registro Exitoso');
+       //return \View('/PRODUCTO/crear_producto')
+       //->with('success','Registro Exitoso');
        
+  return redirect('crear_producto')->with('success', 'Registro Exitoso');
+//  return redirect('crear_cliente')->with('success', 'No se puede registrar más de un empleado ');
 
      }
 

@@ -63,7 +63,9 @@ protected $primaryKey='cedula';
 
         $cliente = Cliente::find($idcedula);
         $cliente->delete();
-
+        $users = User::find($idcedula);
+        $users->delete();
+ 
       }
 
       public static function updateCliente($cliente){

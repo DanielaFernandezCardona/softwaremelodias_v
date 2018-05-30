@@ -41,13 +41,13 @@
                 <li><a href="/productosWelcome">Productos</a></li>
                 <li><a href="nosotros">Contáctanos</a></li>
                 <li><a href="/registrarUsuario" style="background:#df6666;color:white;">Regístrate</a></li>
-                <li><a href="login">Login</a></li>
+                <li><a href="login">Iniciar Sesión</a></li>
             </ul>
         </nav>
     </header>
 
     <main>
- <div class="container" style="margin-left:21%; ">
+ <div class="container" >
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
@@ -122,14 +122,14 @@
                          <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-envelope-o bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="email" name="email" type="text" placeholder="Email" class="form-control">
+                                <input id="email" name="email" type="text" placeholder="ingrese Email" class="form-control" >
                             </div>
                         </div>                     
 
                        <div class="form-group">
                             <span class="col-md-1 col-md-offset-2 text-center"><i class="fa fa-unlock-alt bigicon"></i></span>
                             <div class="col-md-8">
-                                <input id="password" name="password" type="password" placeholder="Contraseña" class="form-control">
+                                <input id="password" name="password" type="password" placeholder="ingrese Contraseña" class="form-control" >
                             </div>
                         </div>
 

@@ -62,13 +62,48 @@ public function index()
          $person = Auth::user();
 
         $torneobd=torneos::find($codigotorneo);
-        $torneobd ->idUser = $person->id;
-       $torneobd->save();
-          return redirect('listar_torneo');
+            
+            echo(Auth::user()['id']);
+
+          $Usuario=DB::table('userstorneos')
+              ->where('users_id',$person['id'])
+              ->count();
+
+
+
+          if(!$Usuario==1){
+          
+        $jugadores=$torneobd ->cantidadJugadores;
+
+        if(!$jugadores==0){
+          $torneobd ->cantidadJugadores=$jugadores-1;
+           $torneobd->save();
+        }else{
+           return redirect('listar_torneo')->with('success', 'No se puede registrar mas usuarios');
+
+        }  
+
+    
+          DB::table('userstorneos')->insert(array(
+        'torneos_idtorneo' => $codigotorneo,
+         'users_id' => $person['id']
+          ));  
+          
+
+         return redirect('listar_torneo')->with('success', 'Se registro el usuario correctamente');
   
 
+          }else{
+            return redirect('listar_torneo')->with('success', 'Ya se encuentra registrado');
+          
+          }
 
-      }
+
+
+        
+
+
+      }//cierra funcion
 
 
 

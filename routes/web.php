@@ -33,10 +33,11 @@ Route::get('login',array('as'=>'login',function()
      }
 ));
 
+/*
 Route::get('misdatos', function () {
     return redirect('CLIENTE/misdatos');
 });
-
+*/
 
 Route::post('/logear','Auth\LoginController@postLogin');
 Route::get('/salir','Auth\LoginController@logout');
@@ -44,7 +45,7 @@ Route::get('/salir','Auth\LoginController@logout');
 
 
 //grupo privado
-//Route::group(['middleware'=>'auth'],function(){
+Route::group(['middleware'=>'auth'],function(){
 
 
 Route::get('/cliente', function () {
@@ -57,7 +58,35 @@ Route::get('/producto', function () {
 
 
 Route::get('/crear_producto', function () {
-    return view('PRODUCTO/crear_producto');
+
+ $person = Auth::user();
+
+  $persona=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.rol')
+  ->Where('clientes.cedula',"=",$person->id)
+  ->first();
+
+    if($persona->rol=='administrador')
+    return view('PRODUCTO.crear_producto');
+    if($persona->rol=='empleado')
+    return view('PRODUCTO.crear_producto');
+
+   if($persona->rol=='cliente')
+    return view('bienvenido');
+
+
+
+
+    
+});
+
+
+
+
+
+Route::get('/updateMesa', function () {
+    return view('MESA/updatemesa');
 });
 
 
@@ -84,7 +113,25 @@ Route::get('/agregar_stock', ['as' => 'agregar_stock', 'uses' => 'agregarStockCo
 
 */
 Route::get('/agregar_stock', function () {
+
+            
+  $person = Auth::user();
+
+  $persona=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.rol')
+  ->Where('clientes.users_idUsuario',"=",$person->id)
+  ->first();
+
+    if($persona->rol=='administrador')
     return view('PRODUCTO.agregar_stock');
+    
+    if($persona->rol=='empleado')
+    return view('welcome');
+
+   if($persona->rol=='cliente')
+    return view('bienvenido');
+  
 });
 
 Route::get('/inscripcion', function () {
@@ -92,16 +139,38 @@ Route::get('/inscripcion', function () {
 });
 
 
-Route::get('/listarproducto', ['as' => 'listarproducto', 'uses' => 'productoController@index']);
+Route::get('/listarproducto', ['as' => 'listarproducto', 'uses' => 'productoController@index'] , function(){
 
-Route::get('/registrar_venta', ['as' => 'listaUsuario', 'uses' => 'ventaController@index']);
+$person = Auth::user();
+
+  $persona=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.rol')
+  ->Where('clientes.cedula',"=",$person->id)
+  ->first();
+
+    if($persona->rol=='administrador')
+    return view('PRODUCTO.listarproducto');
+    if($persona->rol=='empleado')
+    return view('PRODUCTO.listarproducto');
+
+   if($persona->rol=='cliente')
+    return view('bienvenido');
+
+}
 
 
-/*
+
+    );
+
+//Route::get('/registrar_venta', ['as' => 'listaUsuario', 'uses' => 'ventaController@index']);
+
+
+
 Route::get('/registrar_venta', function () {
     return view('VENTA/venta');
 });
-*/
+
 
 
 //apertura caja, lista de productos
@@ -122,8 +191,36 @@ Route::get('producto/destroy/{codigoProducto}', ['as' => 'producto/destroy', 'us
     
 //clientes
 Route::get('/crear_cliente', function () {
+
+  $person = Auth::user();
+
+  $persona=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.rol')
+  ->Where('clientes.users_idUsuario',"=",$person->id)
+  ->first();
+
+    if($persona->rol=='administrador')
     return view('CLIENTE/crear_cliente');
+
+    if($persona->rol=='empleado')
+    return view('CLIENTE/crear_cliente');
+
+   if($persona->rol=='cliente')
+    return view('bienvenido');
+  
+
+
 });
+
+
+
+Route::get('/BienvenidosPanel', function () {
+    return view('bienvenido');
+});
+
+
+
 
 //update cliente
 Route::post('/update_Usuario','usuarioController@updateCliente');
@@ -140,7 +237,8 @@ Route::get('/mis_datos', function () {
     return view('CLIENTE/misdatos');
 });
 */
-Route::get('/mis_datos', ['as' => 'listar_Personas', 'uses' => 'usuarioController@index2']);
+
+Route::get('/mis_datos', ['as' => 'datos', 'uses' => 'usuarioController@index2']);
 
 
 
@@ -161,21 +259,77 @@ Route::get('/apertura_caja', function () {
 });*/
 
 Route::get('/crear_producto', function () {
+
+$person = Auth::user();
+
+  $persona=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.rol')
+  ->Where('clientes.cedula',"=",$person->id)
+  ->first();
+
+
+    if($persona->rol=='administrador')
+      return view('PRODUCTO/crear_producto');
+
+    if($persona->rol=='empleado')
     return view('PRODUCTO/crear_producto');
+
+   if($persona->rol=='cliente')
+    return view('bienvenido');
+
+
+
+   
 });
 
 
-
+//crear mesa
 Route::get('/mesa', function () {
     return view('MESA/mesa');
 });
 
-Route::get('/listar_mesas', function () {
-    return view('MESA/listar_mesas');
-});
+//listar mesa
+Route::get('/listar_mesas', ['as' => 'listar_mesas', 'uses' => 'mesaController@index']);
+
+
+
+Route::get('mesa/destroy/{codigoMesa}', ['as' => 'mesa/destroy', 'uses'=>'mesaController@destroy']);
+Route::get('mesa/edit/{codigoMesa}', ['as' => 'mesa/edit', 'uses'=>'mesaController@editMesa']);
+//update mesa
+Route::post('mesa/update',['as'=>'mesa/update', 'uses'=>'mesaController@updateMesa']);
+
+
+
+Route::post('/reservarmesa','mesaController@reserva_mesa');
+Route::get('/listar_reservas', ['as' => 'listar_mesas', 'uses' => 'mesaController@listar_reservas']);
+
+
+
+
 
 Route::get('/crear_torneo', function () {
-    return view('TORNEO/crear_torneo');
+
+$person = Auth::user();
+
+  $persona=DB::table('clientes')
+  ->join('users', 'users.id', '=', 'clientes.users_idUsuario')
+  ->select('clientes.rol')
+  ->Where('clientes.cedula',"=",$person->id)
+  ->first();
+
+
+    if($persona->rol=='administrador')
+         return view('TORNEO/crear_torneo');
+
+    if($persona->rol=='empleado')
+        return view('TORNEO/crear_torneo');
+
+   if($persona->rol=='cliente')
+    return view('bienvenido');
+
+ 
+
 });
 
 Route::get('/listar_torneo', function () {
@@ -205,7 +359,31 @@ Route::get('persona/destroy/{cedula}', ['as' => 'persona/destroy', 'uses'=>'usua
 Route::get('/productosWelcome', ['as' => 'listarproducto', 'uses' => 'productoController@index3']);
 
 
-//});//cierra grupo
+
+Route::post('/crearTorneo','torneoController@create');
+
+Route::get('torneoParticipante/registrar/{idAdmin}', ['as' => 'torneoParticipante/registrar', 'uses'=>'torneoController@createParticipante']);
+
+Route::get('torneoParticipante/destroy/{idTorneo}', ['as' => 'torneoParticipante/destroy', 'uses'=>'torneoController@destroy']);
+
+
+//torneo
+/*
+Route::get('/crear_torneo', function () {
+    return view('TORNEO/crear_torneo');
+});
+*/
+Route::get('/listar_torneo', function () {
+    return view('TORNEO/listar_torneo');
+});
+
+Route::get('/listar_torneo', ['as' => 'listar_torneo', 'uses' => 'torneoController@index']);
+
+
+
+
+
+});//cierra grupo
 
 
 Route::get('/registrarUsuario', function () {
@@ -216,21 +394,6 @@ Route::post('/crearPersona1','usuarioController@create1');
 
 
 
-//torneo
-
-Route::get('/crear_torneo', function () {
-    return view('TORNEO/crear_torneo');
-});
-
-Route::get('/listar_torneo', function () {
-    return view('TORNEO/listar_torneo');
-});
-
-Route::get('/listar_torneo', ['as' => 'listar_torneo', 'uses' => 'torneoController@index']);
 
 
-Route::post('/crearTorneo','torneoController@create');
 
-Route::get('torneoParticipante/registrar/{idAdmin}', ['as' => 'torneoParticipante/registrar', 'uses'=>'torneoController@createParticipante']);
-
-Route::get('torneoParticipante/destroy/{idTorneo}', ['as' => 'torneoParticipante/destroy', 'uses'=>'torneoController@destroy']);
