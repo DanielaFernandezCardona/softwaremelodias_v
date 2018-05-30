@@ -41,8 +41,6 @@
       <td>{{$persona->username}}</td> 
       <td>{{$persona->email}}</td> 
       <!---<td>{{$persona->password}}</td>-->
-      <td><img src="./storage/313247_171303399615225_971034462_n.jpg" alt="{{$persona->nombreCompleto}}" class="img-responsive" widht="300" height="300"  /></td>
-
       <td>
        <a class="btn btn-danger btn-xs" href="{{ route('persona/destroy',['cedula' =>$persona->cedula] )}}" onclick="return confirm('¿Seguro desea eliminarlo?')" >Eliminar</a>
      </td>   
