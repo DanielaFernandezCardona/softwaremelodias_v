@@ -173,8 +173,7 @@ return view('/CLIENTE/misdatos',['persona' => $persona]);
               //'foto' => './storage/'.$nombre
           );
 
-           cliente::crearcliente($dataclientes);
-
+           cliente::crearCliente($dataclientes);
 
            return \View('login')
            ->with('success','Registro Exitoso');
