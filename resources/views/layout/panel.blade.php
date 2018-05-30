@@ -135,7 +135,7 @@
 
 
         <li data-toggle="collapse" data-target="#mesa" class="collapsed">
-          <a href="#"><i class="fa fa-barsfa-lg"></i> Mesas <span class="arrow"></span></a>
+          <a href="#"><i class="fa fa-calendar fa-lg"></i> Mesas <span class="arrow"></span></a>
         </li>
         <ul class="sub-menu collapse" id="mesa">
           <li><a href="/mesa">Crear mesa</a></li>

@@ -178,7 +178,7 @@ function buscarCliente(){
 
 //   document.getElementById('usuario').value="mundo";
 
-  document.getElementById("usuarios").value="asdasdasd";
+  document.getElementById("usuarios").value=nombreCliente;
 
 
 
@@ -198,11 +198,11 @@ $.ajax({
     success: function(data, textStatus, jqXHR)
     {
       
-
+/*
 data.forEach( function(valor, indice, array) {
     alert("En el índice " + indice + " hay este valor: " + valor);
 });
-
+*/
 
       var res = data.split(":");
 
