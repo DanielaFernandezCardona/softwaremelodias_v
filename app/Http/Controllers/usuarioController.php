@@ -154,6 +154,7 @@ return view('/CLIENTE/misdatos',['persona' => $persona]);
     }
 
 
+
     public function create1( Request $request)
     {
 
