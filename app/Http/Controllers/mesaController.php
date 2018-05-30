@@ -102,8 +102,7 @@ public function reserva_mesa(Request $data){
 
 
   if($conteoMesa==1 && $conteoCliente){
-
-$now = new DateTime($data->fecha);
+$now = new DateTime();
    DB::table('reservas')->insert(array(
        'fechaReserva' => $now,
        'mesas_codigoMesa' => $mesa->codigoMesa,
